@@ -11,9 +11,9 @@
       },
       "explanations": {
         "a": "Incorrect: Unsupervised learning works without labeled output data and focuses on discovering hidden patterns. Decision Trees require known class labels to decide how to split the data, so unsupervised learning is not suitable.",
-        "b": "Incorrect: Reinforcement learning depends on interaction with an environment using rewards and penalties. Decision Trees do not learn through feedback or delayed rewards.",
+        "b": "Incorrect: Reinforcement learning depends on interaction with an environment using rewards and penalties. Decision Trees do not learn through feedback or delayed rewards, making this option incorrect.",
         "c": "Correct: Decision Trees learn from labeled input–output pairs and build decision rules based on known target values. Hence, Decision Trees are classified as supervised learning algorithms.",
-        "d": "Incorrect: Semi-supervised learning uses a combination of labeled and unlabeled data. Standard Decision Tree algorithms are trained entirely on labeled datasets."
+        "d": "Incorrect: Semi-supervised learning uses a combination of labeled and unlabeled data. Standard Decision Tree algorithms are trained entirely on labeled datasets and do not rely on unlabeled data."
       },
       "correctAnswer": "c",
       "difficulty": "beginner"
@@ -30,7 +30,7 @@
         "a": "Incorrect: The root node is the starting point of the Decision Tree and performs the first split, but it does not provide the final prediction.",
         "b": "Incorrect: Internal nodes further divide the dataset based on conditions but do not represent the final outcome.",
         "c": "Incorrect: A parent node is any node that has child nodes and does not necessarily give the final result.",
-        "d": "Correct: A leaf node represents the end of a decision path and provides the final predicted class or value."
+        "d": "Correct: A leaf node represents the end of a decision path and provides the final predicted class or value, making it the correct answer."
       },
       "correctAnswer": "d",
       "difficulty": "beginner"
@@ -38,13 +38,13 @@
     {
       "question": "Using which parameter can we control overfitting in a Decision Tree?",
       "answers": {
-        "a": "n_estimator",
+        "a": "n estimator",
         "b": "Learning rate",
         "c": "Batch size",
         "d": "Max depth"
       },
       "explanations": {
-        "a": "Incorrect: The n_estimator parameter is used in ensemble models like Random Forests, not in a single Decision Tree.",
+        "a": "Incorrect: The n estimator parameter is used in ensemble models like Random Forests, not in a single Decision Tree.",
         "b": "Incorrect: Learning rate is mainly used in boosting algorithms and neural networks, not in Decision Trees.",
         "c": "Incorrect: Batch size is related to gradient-based optimization methods, which Decision Trees do not use.",
         "d": "Correct: Max depth limits how deep the tree can grow, preventing it from learning noise and thereby reducing overfitting."
@@ -53,21 +53,21 @@
       "difficulty": "intermediate"
     },
     {
-      "question": "Which type of data can Decision Trees handle?",
+      "question": "What is the main reason Decision Trees are prone to overfitting?",
       "answers": {
-        "a": "Only numerical data",
-        "b": "Only categorical data",
-        "c": "Both numerical and categorical data",
-        "d": "Only binary data"
+        "a": "They use ensemble techniques",
+        "b": "They create very deep trees that memorize training data",
+        "c": "They cannot handle missing values",
+        "d": "They require feature scaling"
       },
       "explanations": {
-        "a": "Incorrect: Decision Trees are not limited to numerical data only.",
-        "b": "Incorrect: Decision Trees can also handle numerical data using threshold-based splits.",
-        "c": "Correct: Decision Trees can work with both numerical and categorical features without extensive preprocessing.",
-        "d": "Incorrect: Binary data is just a special case and Decision Trees are not restricted to it."
+        "a": "Incorrect: Ensemble techniques like Random Forest actually reduce overfitting.",
+        "b": "Correct: Deep Decision Trees can fit noise in the training data, leading to overfitting.",
+        "c": "Incorrect: Some Decision Tree implementations can handle missing values.",
+        "d": "Incorrect: Decision Trees are scale-invariant and do not require feature scaling."
       },
-      "correctAnswer": "c",
-      "difficulty": "beginner"
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
     },
     {
       "question": "Why is pruning used in a Decision Tree?",
@@ -155,21 +155,21 @@
       "difficulty": "intermediate"
     },
     {
-      "question": "Decision Trees can be used for:",
+      "question": "Which metric is commonly used to decide the best split in a Decision Tree classifier?",
       "answers": {
-        "a": "Only classification",
-        "b": "Only regression",
-        "c": "Both classification and regression",
-        "d": "Only clustering"
+        "a": "Mean Squared Error (MSE)",
+        "b": "Gini Index",
+        "c": "Euclidean Distance",
+        "d": "Accuracy Score"
       },
       "explanations": {
-        "a": "Incorrect: Decision Trees can also be used for regression.",
-        "b": "Incorrect: Decision Trees are widely used for classification tasks as well.",
-        "c": "Correct: Decision Trees can handle both classification and regression problems, making them highly versatile.",
-        "d": "Incorrect: Clustering is an unsupervised task, while Decision Trees require labeled data."
+        "a": "Incorrect: MSE is mainly used in regression tasks, not classification splits.",
+        "b": "Correct: The Gini Index measures impurity and is widely used for classification trees.",
+        "c": "Incorrect: Euclidean distance is used in algorithms like KNN, not Decision Trees.",
+        "d": "Incorrect: Accuracy is used for model evaluation, not for selecting splits."
       },
-      "correctAnswer": "c",
-      "difficulty": "beginner"
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
     }
   ]
 }
