@@ -1,5 +1,3 @@
-### Theory
-
 A Decision Tree is a supervised learning algorithm used for both classification and regression tasks. It has a hierarchical tree structure consisting of a root node, internal nodes, branches, and leaf nodes.
 
 The main components of a Decision Tree are:
