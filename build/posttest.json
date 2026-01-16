@@ -38,16 +38,16 @@
     {
       "question": "Which parameter controls the depth of a Decision Tree?",
       "answers": {
-        "a": "min_samples_split",
-        "b": "min_samples_leaf",
+        "a": "min samples split",
+        "b": "min samples leaf",
         "c": "criterion",
-        "d": "max_depth"
+        "d": "max depth"
       },
       "explanations": {
         "a": "Incorrect: This parameter controls the minimum samples required to split a node, not tree depth.",
         "b": "Incorrect: It controls the minimum samples in a leaf node but does not directly limit depth.",
         "c": "Incorrect: The criterion parameter selects the split quality measure, not depth.",
-        "d": "Correct: The max_depth parameter directly limits how deep the tree can grow, helping control complexity and overfitting."
+        "d": "Correct: The max depth parameter directly limits how deep the tree can grow, helping control complexity and overfitting."
       },
       "correctAnswer": "d",
       "difficulty": "intermediate"
@@ -104,72 +104,72 @@
       "difficulty": "intermediate"
     },
     {
-      "question": "Which type of machine learning does Decision Tree belong to?",
+      "question": "What does a Decision Tree use to choose the first split at the root node?",
       "answers": {
-        "a": "Unsupervised learning",
-        "b": "Reinforcement learning",
-        "c": "Supervised learning",
-        "d": "Clustering"
+        "a": "Random selection of features",
+        "b": "Feature with maximum impurity reduction",
+        "c": "Feature with highest variance",
+        "d": "Feature with minimum depth"
       },
       "explanations": {
-        "a": "Incorrect: Decision Trees require labeled output data.",
-        "b": "Incorrect: Decision Trees do not learn using rewards and penalties.",
-        "c": "Correct: Decision Trees learn from labeled input–output pairs, so they belong to supervised learning.",
-        "d": "Incorrect: Clustering is an unsupervised task."
-      },
-      "correctAnswer": "c",
-      "difficulty": "beginner"
-    },
-    {
-      "question": "Which ensemble method combines multiple Decision Trees?",
-      "answers": {
-        "a": "K-Means",
-        "b": "Logistic Regression",
-        "c": "Random Forest",
-        "d": "Naive Bayes"
-      },
-      "explanations": {
-        "a": "Incorrect: K-Means is a clustering algorithm.",
-        "b": "Incorrect: Logistic Regression is a linear model.",
-        "c": "Correct: Random Forest builds many Decision Trees and aggregates their outputs to improve accuracy and robustness.",
-        "d": "Incorrect: Naive Bayes is a probabilistic classifier."
-      },
-      "correctAnswer": "c",
-      "difficulty": "intermediate"
-    },
-    {
-      "question": "Which feature is used to reduce variance in Decision Trees?",
-      "answers": {
-        "a": "Feature scaling",
-        "b": "Ensemble learning",
-        "c": "Data normalization",
-        "d": "Dimensionality reduction"
-      },
-      "explanations": {
-        "a": "Incorrect: Decision Trees are not sensitive to feature magnitude.",
-        "b": "Correct: Ensemble learning averages predictions from multiple models, effectively reducing variance.",
-        "c": "Incorrect: Normalization does not directly reduce variance.",
-        "d": "Incorrect: Dimensionality reduction does not directly address variance."
+        "a": "Incorrect: Random selection is used in Random Forests, not in a single Decision Tree.",
+        "b": "Correct: The root node split is chosen based on the feature that results in the maximum reduction in impurity (e.g., highest Information Gain or lowest Gini).",
+        "c": "Incorrect: Variance is mainly used in regression trees, not classification impurity selection.",
+        "d": "Incorrect: Depth is a result of splitting, not a criterion for choosing splits."
       },
       "correctAnswer": "b",
       "difficulty": "intermediate"
     },
     {
-      "question": "Decision Trees can be used for:",
+      "question": "Which drawback of Decision Trees is reduced by Random Forests?",
       "answers": {
-        "a": "Only classification",
-        "b": "Only regression",
-        "c": "Both classification and regression",
-        "d": "Only clustering"
+        "a": "High bias",
+        "b": "Sensitivity to outliers",
+        "c": "High variance",
+        "d": "Requirement of labeled data"
       },
       "explanations": {
-        "a": "Incorrect: Decision Trees can also predict continuous values.",
-        "b": "Incorrect: Decision Trees are widely used for classification.",
-        "c": "Correct: Decision Trees can be designed for both classification and regression tasks.",
-        "d": "Incorrect: Clustering is an unsupervised task."
+        "a": "Incorrect: Random Forest mainly addresses variance, not bias.",
+        "b": "Incorrect: Decision Trees are relatively robust to outliers.",
+        "c": "Correct: Random Forest reduces high variance by averaging predictions from multiple Decision Trees.",
+        "d": "Incorrect: Labeled data is required for all supervised models, including Random Forests."
       },
       "correctAnswer": "c",
-      "difficulty": "beginner"
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "Which parameter ensures that a leaf node has a minimum number of samples?",
+      "answers": {
+        "a": "max depth",
+        "b": "min samples split",
+        "c": "min samples leaf",
+        "d": "n estimator"
+      },
+      "explanations": {
+        "a": "Incorrect: Max depth limits the height of the tree but does not control samples in a leaf.",
+        "b": "Incorrect: This controls the minimum samples required to split a node, not to form a leaf.",
+        "c": "Correct: min samples leaf ensures that each leaf node contains at least a specified number of samples, helping reduce overfitting.",
+        "d": "Incorrect: n estimator is used in ensemble models, not in individual Decision Trees."
+      },
+      "correctAnswer": "c",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "Which property of Decision Trees makes them insensitive to feature scaling?",
+      "answers": {
+        "a": "Greedy splitting strategy",
+        "b": "Use of threshold-based comparisons",
+        "c": "Use of gradient descent",
+        "d": "Dependence on distance metrics"
+      },
+      "explanations": {
+        "a": "Incorrect: Greedy splitting selects the best split locally but does not explain scale insensitivity.",
+        "b": "Correct: Decision Trees split data using conditions like ≤ or > a threshold, so relative ordering matters, not the actual scale of feature values.",
+        "c": "Incorrect: Decision Trees do not use gradient descent for training.",
+        "d": "Incorrect: Distance metrics are used in algorithms like KNN, not Decision Trees."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
     }
   ]
 }

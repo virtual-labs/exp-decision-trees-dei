@@ -465,7 +465,7 @@
                     <div id="answer2a">
                       <label>
                         <input type="radio" name="question2" value="a">
-                        a: n_estimator
+                        a: n estimator
                       </label>
                       <a href="#" id="explanation2a" class="accordion" onclick="return false;">Explanation</a>
                     </div>
@@ -496,15 +496,15 @@
                     <p class="panel">Explanation</p>
                 </div>
                 
-                  <div class="question beginner">
-                    Which type of data can Decision Trees handle?
+                  <div class="question intermediate">
+                    What is the main reason Decision Trees are prone to overfitting?
                   </div>
                   
                   <div class="answers">
                     <div id="answer3a">
                       <label>
                         <input type="radio" name="question3" value="a">
-                        a: Only numerical data
+                        a: They use ensemble techniques
                       </label>
                       <a href="#" id="explanation3a" class="accordion" onclick="return false;">Explanation</a>
                     </div>
@@ -512,7 +512,7 @@
                     <div id="answer3b">
                       <label>
                         <input type="radio" name="question3" value="b">
-                        b: Only categorical data
+                        b: They create very deep trees that memorize training data
                       </label>
                       <a href="#" id="explanation3b" class="accordion" onclick="return false;">Explanation</a>
                     </div>
@@ -520,7 +520,7 @@
                     <div id="answer3c">
                       <label>
                         <input type="radio" name="question3" value="c">
-                        c: Both numerical and categorical data
+                        c: They cannot handle missing values
                       </label>
                       <a href="#" id="explanation3c" class="accordion" onclick="return false;">Explanation</a>
                     </div>
@@ -528,7 +528,7 @@
                     <div id="answer3d">
                       <label>
                         <input type="radio" name="question3" value="d">
-                        d: Only binary data
+                        d: They require feature scaling
                       </label>
                       <a href="#" id="explanation3d" class="accordion" onclick="return false;">Explanation</a>
                     </div>
@@ -730,15 +730,15 @@
                     <p class="panel">Explanation</p>
                 </div>
                 
-                  <div class="question beginner">
-                    Decision Trees can be used for:
+                  <div class="question intermediate">
+                    Which metric is commonly used to decide the best split in a Decision Tree classifier?
                   </div>
                   
                   <div class="answers">
                     <div id="answer9a">
                       <label>
                         <input type="radio" name="question9" value="a">
-                        a: Only classification
+                        a: Mean Squared Error (MSE)
                       </label>
                       <a href="#" id="explanation9a" class="accordion" onclick="return false;">Explanation</a>
                     </div>
@@ -746,7 +746,7 @@
                     <div id="answer9b">
                       <label>
                         <input type="radio" name="question9" value="b">
-                        b: Only regression
+                        b: Gini Index
                       </label>
                       <a href="#" id="explanation9b" class="accordion" onclick="return false;">Explanation</a>
                     </div>
@@ -754,7 +754,7 @@
                     <div id="answer9c">
                       <label>
                         <input type="radio" name="question9" value="c">
-                        c: Both classification and regression
+                        c: Euclidean Distance
                       </label>
                       <a href="#" id="explanation9c" class="accordion" onclick="return false;">Explanation</a>
                     </div>
@@ -762,7 +762,7 @@
                     <div id="answer9d">
                       <label>
                         <input type="radio" name="question9" value="d">
-                        d: Only clustering
+                        d: Accuracy Score
                       </label>
                       <a href="#" id="explanation9d" class="accordion" onclick="return false;">Explanation</a>
                     </div>
@@ -774,7 +774,7 @@
           </div>
             
             <script>
-              const myQuestions = [{"question":"Learning type of Decision Tree?","answers":{"a":"Unsupervised","b":"Reinforcement","c":"Supervised","d":"Semi-supervised"},"explanations":{"a":"Incorrect: Unsupervised learning works without labeled output data and focuses on discovering hidden patterns. Decision Trees require known class labels to decide how to split the data, so unsupervised learning is not suitable.","b":"Incorrect: Reinforcement learning depends on interaction with an environment using rewards and penalties. Decision Trees do not learn through feedback or delayed rewards.","c":"Correct: Decision Trees learn from labeled input–output pairs and build decision rules based on known target values. Hence, Decision Trees are classified as supervised learning algorithms.","d":"Incorrect: Semi-supervised learning uses a combination of labeled and unlabeled data. Standard Decision Tree algorithms are trained entirely on labeled datasets."},"correctAnswer":"c","difficulty":"beginner"},{"question":"Which node represents the final output in a Decision Tree?","answers":{"a":"Root node","b":"Internal node","c":"Parent node","d":"Leaf node"},"explanations":{"a":"Incorrect: The root node is the starting point of the Decision Tree and performs the first split, but it does not provide the final prediction.","b":"Incorrect: Internal nodes further divide the dataset based on conditions but do not represent the final outcome.","c":"Incorrect: A parent node is any node that has child nodes and does not necessarily give the final result.","d":"Correct: A leaf node represents the end of a decision path and provides the final predicted class or value."},"correctAnswer":"d","difficulty":"beginner"},{"question":"Using which parameter can we control overfitting in a Decision Tree?","answers":{"a":"n_estimator","b":"Learning rate","c":"Batch size","d":"Max depth"},"explanations":{"a":"Incorrect: The n_estimator parameter is used in ensemble models like Random Forests, not in a single Decision Tree.","b":"Incorrect: Learning rate is mainly used in boosting algorithms and neural networks, not in Decision Trees.","c":"Incorrect: Batch size is related to gradient-based optimization methods, which Decision Trees do not use.","d":"Correct: Max depth limits how deep the tree can grow, preventing it from learning noise and thereby reducing overfitting."},"correctAnswer":"d","difficulty":"intermediate"},{"question":"Which type of data can Decision Trees handle?","answers":{"a":"Only numerical data","b":"Only categorical data","c":"Both numerical and categorical data","d":"Only binary data"},"explanations":{"a":"Incorrect: Decision Trees are not limited to numerical data only.","b":"Incorrect: Decision Trees can also handle numerical data using threshold-based splits.","c":"Correct: Decision Trees can work with both numerical and categorical features without extensive preprocessing.","d":"Incorrect: Binary data is just a special case and Decision Trees are not restricted to it."},"correctAnswer":"c","difficulty":"beginner"},{"question":"Why is pruning used in a Decision Tree?","answers":{"a":"Reduce overfitting","b":"Reduce max depth","c":"Increase training time","d":"Increase max depth"},"explanations":{"a":"Correct: Pruning removes unnecessary branches that cause the model to fit noise in the training data, thereby reducing overfitting.","b":"Incorrect: Reducing max depth is one technique, but pruning focuses on removing weak branches.","c":"Incorrect: Pruning usually simplifies the tree and reduces computational complexity.","d":"Incorrect: Pruning never increases the depth of the tree."},"correctAnswer":"a","difficulty":"intermediate"},{"question":"In Scikit-learn, which class is used for Decision Tree classification?","answers":{"a":"DecisionTreeModel","b":"TreeClassifier","c":"DecisionTreeClassifier","d":"DTClassifier"},"explanations":{"a":"Incorrect: This class does not exist in the Scikit-learn library.","b":"Incorrect: TreeClassifier is not a valid Scikit-learn class.","c":"Correct: DecisionTreeClassifier is the official Scikit-learn class used to implement Decision Tree classification models.","d":"Incorrect: DTClassifier is not defined in Scikit-learn."},"correctAnswer":"c","difficulty":"beginner"},{"question":"Which type of machine learning does Decision Tree belong to?","answers":{"a":"Unsupervised learning","b":"Reinforcement learning","c":"Supervised learning","d":"Clustering"},"explanations":{"a":"Incorrect: Unsupervised learning works without labeled output data, while Decision Trees require labels.","b":"Incorrect: Decision Trees do not learn through rewards or penalties.","c":"Correct: Decision Trees learn from labeled input–output pairs, so they belong to supervised learning.","d":"Incorrect: Clustering is an unsupervised task and does not involve prediction."},"correctAnswer":"c","difficulty":"beginner"},{"question":"Which ensemble method combines multiple Decision Trees?","answers":{"a":"K-Means","b":"Logistic Regression","c":"Random Forest","d":"Naive Bayes"},"explanations":{"a":"Incorrect: K-Means is a clustering algorithm.","b":"Incorrect: Logistic Regression is a linear model.","c":"Correct: Random Forest builds multiple Decision Trees and combines their predictions to improve accuracy and reduce overfitting.","d":"Incorrect: Naive Bayes is a probabilistic classifier and does not use Decision Trees."},"correctAnswer":"c","difficulty":"intermediate"},{"question":"Which feature is used to reduce variance in Decision Trees?","answers":{"a":"Feature scaling","b":"Ensemble learning","c":"Data normalization","d":"Dimensionality reduction"},"explanations":{"a":"Incorrect: Decision Trees are not sensitive to feature magnitudes.","b":"Correct: Ensemble learning combines predictions from multiple models, which effectively reduces variance.","c":"Incorrect: Normalization does not directly reduce variance in trees.","d":"Incorrect: It simplifies features but does not directly address variance."},"correctAnswer":"b","difficulty":"intermediate"},{"question":"Decision Trees can be used for:","answers":{"a":"Only classification","b":"Only regression","c":"Both classification and regression","d":"Only clustering"},"explanations":{"a":"Incorrect: Decision Trees can also be used for regression.","b":"Incorrect: Decision Trees are widely used for classification tasks as well.","c":"Correct: Decision Trees can handle both classification and regression problems, making them highly versatile.","d":"Incorrect: Clustering is an unsupervised task, while Decision Trees require labeled data."},"correctAnswer":"c","difficulty":"beginner"}];
+              const myQuestions = [{"question":"Learning type of Decision Tree?","answers":{"a":"Unsupervised","b":"Reinforcement","c":"Supervised","d":"Semi-supervised"},"explanations":{"a":"Incorrect: Unsupervised learning works without labeled output data and focuses on discovering hidden patterns. Decision Trees require known class labels to decide how to split the data, so unsupervised learning is not suitable.","b":"Incorrect: Reinforcement learning depends on interaction with an environment using rewards and penalties. Decision Trees do not learn through feedback or delayed rewards, making this option incorrect.","c":"Correct: Decision Trees learn from labeled input–output pairs and build decision rules based on known target values. Hence, Decision Trees are classified as supervised learning algorithms.","d":"Incorrect: Semi-supervised learning uses a combination of labeled and unlabeled data. Standard Decision Tree algorithms are trained entirely on labeled datasets and do not rely on unlabeled data."},"correctAnswer":"c","difficulty":"beginner"},{"question":"Which node represents the final output in a Decision Tree?","answers":{"a":"Root node","b":"Internal node","c":"Parent node","d":"Leaf node"},"explanations":{"a":"Incorrect: The root node is the starting point of the Decision Tree and performs the first split, but it does not provide the final prediction.","b":"Incorrect: Internal nodes further divide the dataset based on conditions but do not represent the final outcome.","c":"Incorrect: A parent node is any node that has child nodes and does not necessarily give the final result.","d":"Correct: A leaf node represents the end of a decision path and provides the final predicted class or value, making it the correct answer."},"correctAnswer":"d","difficulty":"beginner"},{"question":"Using which parameter can we control overfitting in a Decision Tree?","answers":{"a":"n estimator","b":"Learning rate","c":"Batch size","d":"Max depth"},"explanations":{"a":"Incorrect: The n estimator parameter is used in ensemble models like Random Forests, not in a single Decision Tree.","b":"Incorrect: Learning rate is mainly used in boosting algorithms and neural networks, not in Decision Trees.","c":"Incorrect: Batch size is related to gradient-based optimization methods, which Decision Trees do not use.","d":"Correct: Max depth limits how deep the tree can grow, preventing it from learning noise and thereby reducing overfitting."},"correctAnswer":"d","difficulty":"intermediate"},{"question":"What is the main reason Decision Trees are prone to overfitting?","answers":{"a":"They use ensemble techniques","b":"They create very deep trees that memorize training data","c":"They cannot handle missing values","d":"They require feature scaling"},"explanations":{"a":"Incorrect: Ensemble techniques like Random Forest actually reduce overfitting.","b":"Correct: Deep Decision Trees can fit noise in the training data, leading to overfitting.","c":"Incorrect: Some Decision Tree implementations can handle missing values.","d":"Incorrect: Decision Trees are scale-invariant and do not require feature scaling."},"correctAnswer":"b","difficulty":"intermediate"},{"question":"Why is pruning used in a Decision Tree?","answers":{"a":"Reduce overfitting","b":"Reduce max depth","c":"Increase training time","d":"Increase max depth"},"explanations":{"a":"Correct: Pruning removes unnecessary branches that cause the model to fit noise in the training data, thereby reducing overfitting.","b":"Incorrect: Reducing max depth is one technique, but pruning focuses on removing weak branches.","c":"Incorrect: Pruning usually simplifies the tree and reduces computational complexity.","d":"Incorrect: Pruning never increases the depth of the tree."},"correctAnswer":"a","difficulty":"intermediate"},{"question":"In Scikit-learn, which class is used for Decision Tree classification?","answers":{"a":"DecisionTreeModel","b":"TreeClassifier","c":"DecisionTreeClassifier","d":"DTClassifier"},"explanations":{"a":"Incorrect: This class does not exist in the Scikit-learn library.","b":"Incorrect: TreeClassifier is not a valid Scikit-learn class.","c":"Correct: DecisionTreeClassifier is the official Scikit-learn class used to implement Decision Tree classification models.","d":"Incorrect: DTClassifier is not defined in Scikit-learn."},"correctAnswer":"c","difficulty":"beginner"},{"question":"Which type of machine learning does Decision Tree belong to?","answers":{"a":"Unsupervised learning","b":"Reinforcement learning","c":"Supervised learning","d":"Clustering"},"explanations":{"a":"Incorrect: Unsupervised learning works without labeled output data, while Decision Trees require labels.","b":"Incorrect: Decision Trees do not learn through rewards or penalties.","c":"Correct: Decision Trees learn from labeled input–output pairs, so they belong to supervised learning.","d":"Incorrect: Clustering is an unsupervised task and does not involve prediction."},"correctAnswer":"c","difficulty":"beginner"},{"question":"Which ensemble method combines multiple Decision Trees?","answers":{"a":"K-Means","b":"Logistic Regression","c":"Random Forest","d":"Naive Bayes"},"explanations":{"a":"Incorrect: K-Means is a clustering algorithm.","b":"Incorrect: Logistic Regression is a linear model.","c":"Correct: Random Forest builds multiple Decision Trees and combines their predictions to improve accuracy and reduce overfitting.","d":"Incorrect: Naive Bayes is a probabilistic classifier and does not use Decision Trees."},"correctAnswer":"c","difficulty":"intermediate"},{"question":"Which feature is used to reduce variance in Decision Trees?","answers":{"a":"Feature scaling","b":"Ensemble learning","c":"Data normalization","d":"Dimensionality reduction"},"explanations":{"a":"Incorrect: Decision Trees are not sensitive to feature magnitudes.","b":"Correct: Ensemble learning combines predictions from multiple models, which effectively reduces variance.","c":"Incorrect: Normalization does not directly reduce variance in trees.","d":"Incorrect: It simplifies features but does not directly address variance."},"correctAnswer":"b","difficulty":"intermediate"},{"question":"Which metric is commonly used to decide the best split in a Decision Tree classifier?","answers":{"a":"Mean Squared Error (MSE)","b":"Gini Index","c":"Euclidean Distance","d":"Accuracy Score"},"explanations":{"a":"Incorrect: MSE is mainly used in regression tasks, not classification splits.","b":"Correct: The Gini Index measures impurity and is widely used for classification trees.","c":"Incorrect: Euclidean distance is used in algorithms like KNN, not Decision Trees.","d":"Incorrect: Accuracy is used for model evaluation, not for selecting splits."},"correctAnswer":"b","difficulty":"intermediate"}];
             </script>
               <script src="./assets/js/assessment_v2.js"></script>  
           <div class="bug-report-mobile">
