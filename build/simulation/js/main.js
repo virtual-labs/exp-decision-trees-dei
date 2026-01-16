@@ -235,16 +235,14 @@ print("Model trained using Gini impurity")`,
             {
                 code: `# Evaluate Gini model
 y_pred = model.predict(X_test)
-print("Accuracy (Gini, Full Tree):", accuracy_score(y_test, y_pred))
-print("\\nConfusion Matrix (Gini, Full Tree):\\n", confusion_matrix(y_test, y_pred))`,
-                output: `<div class="output-text">Accuracy (Gini, Full Tree): 0.9433</div><br><div class="output-text">Confusion Matrix (Gini, Full Tree):<br>[[52  3  0  1  0  0  0]<br> [ 4 56  0  0  0  0  0]<br> ...<br> [ 0  0  0  2 60  1  0]]</div>`
+print("Accuracy (Gini, Full Tree):", accuracy_score(y_test, y_pred))`,
+                output: `<div class="output-text">Accuracy (Gini, Full Tree): 0.9433</div>`
             },
             {
                 code: `# Compute confusion matrix for Gini
-print("Calculating confusion matrix (Gini)...")
 cm = confusion_matrix(y_test, y_pred)
-print("Confusion matrix calculated successfully")`,
-                output: `<div class="output-text">Calculating confusion matrix (Gini)...<br>Confusion matrix calculated successfully</div>`
+print("Confusion matrix shape:", cm.shape)`,
+                output: `<div class="output-text">Confusion matrix shape: (7, 7)</div>`
             },
             {
                  code: `# Plot confusion matrix (Gini)
@@ -278,10 +276,9 @@ print("Accuracy (Entropy, Full Tree):", accuracy_score(y_test, y_pred_entropy))`
             },
             {
                 code: `# Compute confusion matrix for Entropy
-print("Calculating confusion matrix (Entropy)...")
 cm_entropy = confusion_matrix(y_test, y_pred_entropy)
-print("Confusion matrix (Entropy) calculated successfully")`,
-                output: `<div class="output-text">Calculating confusion matrix (Entropy)...<br>Confusion matrix (Entropy) calculated successfully</div>`
+print("Confusion matrix shape:", cm_entropy.shape)`,
+                output: `<div class="output-text">Confusion matrix shape: (7, 7)</div>`
             },
             {
                  code: `# Plot confusion matrix (Entropy)
@@ -991,15 +988,6 @@ function showDepthSelector() {
             div.innerHTML = `<h3>Depth ${opt.d}</h3><p>${opt.t}</p>`;
             depthOptionsContainer.appendChild(div);
         });
-
-        // Add Full Tree option only for Binary (for now, based on data)
-        if (CLASSIFICATION_TYPE === 'binary') {
-            const fullDiv = document.createElement('div');
-            fullDiv.className = 'depth-option';
-            fullDiv.onclick = () => selectMaxDepth(null);
-            fullDiv.innerHTML = `<h3>Full Tree</h3><p>No limit</p>`;
-            depthOptionsContainer.appendChild(fullDiv);
-        }
     }
 
     document.getElementById('depthSelectorPane').style.display = 'flex';
@@ -1011,7 +999,7 @@ function selectMaxDepth(depth) {
     const selector = document.getElementById('depthSelectorPane');
     if (selector) selector.style.display = 'none';
 
-    currentConfig.depth = depth ? depth.toString() : 'Full';
+    currentConfig.depth = depth.toString();
     
     // Hide depth selector
     document.getElementById('depthSelectorPane').style.display = 'none';
@@ -1031,13 +1019,9 @@ function selectMaxDepth(depth) {
         if (depth === 3) selectedBlocks = [sourceStep.blocks[0], sourceStep.blocks[1]];
         else if (depth === 5) selectedBlocks = [sourceStep.blocks[2], sourceStep.blocks[3]];
         else if (depth === 7) selectedBlocks = [sourceStep.blocks[4], sourceStep.blocks[5]];
-        else {
-            // Full Tree fallback
-            selectedBlocks = [sourceStep.blocks[4], sourceStep.blocks[5]];
-        }
         
         STEPS[5] = { 
-            title: `Model Evaluation (Depth ${depth || 'Full'})`, 
+            title: `Model Evaluation (Depth ${depth})`, 
             blocks: selectedBlocks 
         };
     } else {
@@ -1051,7 +1035,7 @@ function selectMaxDepth(depth) {
         }
         
         STEPS[5] = { 
-            title: `Model Evaluation (Depth ${depth || 'Full'})`, 
+            title: `Model Evaluation (Depth ${depth})`, 
             blocks: [sourceStep.blocks[blockIndex]] 
         };
     }

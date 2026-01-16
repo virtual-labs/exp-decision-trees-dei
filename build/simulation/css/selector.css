@@ -78,18 +78,20 @@
 }
 
 .depth-options {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .depth-option {
     border: 2px solid #e5e7eb;
     border-radius: 16px;
-    padding: 25px 20px;
+    padding: 25px 30px;
     cursor: pointer;
     transition: all 0.2s ease;
     text-align: center;
+    min-width: 140px;
 }
 
 .depth-option:hover {
