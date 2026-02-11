@@ -799,6 +799,8 @@ const FEATURE_DESCRIPTIONS = {
 
 let TREE_DATA = null;
 let STEPS = [];
+let hasCompletedOnce = sessionStorage.getItem('dt_completed') === 'true';
+
 let EXPERIMENT_STATE = {
     stepIndex: 0,
     subStepIndex: 0,
@@ -1137,8 +1139,8 @@ function renderSidebar() {
         Download Experiment
     `;
     
-    // Check if all steps are completed
-    const allCompleted = checkAllStepsCompleted();
+    // Check if all steps are completed (or were completed before a restart)
+    const allCompleted = checkAllStepsCompleted() || hasCompletedOnce;
     if (allCompleted) {
         downloadBtn.style.backgroundColor = "#F57C2A";
         downloadBtn.style.color = "white";
@@ -1381,6 +1383,8 @@ function nextSubStep() {
 }
 
 function showCompletionMessage() {
+    hasCompletedOnce = true;
+    sessionStorage.setItem('dt_completed', 'true');
     const outputDisplay = document.getElementById('outputDisplay');
     
     // Set container styles for centering
