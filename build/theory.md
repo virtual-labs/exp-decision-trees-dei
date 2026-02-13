@@ -31,10 +31,10 @@ Entropy, on the other hand, measures the amount of uncertainty or disorder in a 
 
 #### 4. Algorithm
 
-1. **Step 1:** Start with entire dataset at root node
-2. **Step 2:** If all samples belong to same class, Create leaf node with that class label, **STOP**
-3. **Step 3:** If no features remaining, Create leaf node with majority class, and **STOP**
-4. **Step 4:** Select the best feature to split on:
+- **Step 1:** Start with entire dataset at root node
+- **Step 2:** If all samples belong to same class, Create leaf node with that class label, **STOP**
+- **Step 3:** If no features remaining, Create leaf node with majority class, and **STOP**
+- **Step 4:** Select the best feature to split on:
     - **Using Gini Impurity:**
         - `Gini(node) = 1 - Σ(pᵢ)²`
         - Where pᵢ = proportion of class i in the node
@@ -46,9 +46,9 @@ Entropy, on the other hand, measures the amount of uncertainty or disorder in a 
         - `Entropy(node) = -Σ(pᵢ × log₂(pᵢ))`
         - `Information Gain = Entropy(parent) - Weighted_Entropy(children)`
         - Select split with **HIGHEST** Information Gain
-5. **Step 5:** Create child nodes based on the split condition
-6. **Step 6:** Recursively apply Steps 2-5 to each child node
-7. **Step 7:** For prediction:
+- **Step 5:** Create child nodes based on the split condition
+- **Step 6:** Recursively apply Steps 2-5 to each child node
+- **Step 7:** For prediction:
     - Start at root node
     - At each node, check the split condition
     - Move to left or right child based on feature value
