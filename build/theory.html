@@ -354,68 +354,162 @@
               <h2 id="decision-trees">Decision Trees</h2>
           
             </div>
-              <p>A Decision Tree is a supervised learning algorithm used for both classification and regression tasks. It has a hierarchical tree structure consisting of a root node, internal nodes, branches, and leaf nodes.</p>
-          <p>The main components of a Decision Tree are:</p>
-          <ul>
-          <li><strong>Internal Nodes:</strong> Represent attribute tests</li>
-          <li><strong>Branches:</strong> Represent outcomes of attribute tests</li>
-          <li><strong>Leaf Nodes:</strong> Represent final decision or class labels</li>
-          </ul>
-          <p>As shown in the below figure, a Decision Tree works by recursively subdividing the dataset into smaller groups based on feature values. At each step, the algorithm selects the best feature that separates the data into different classes using an appropriate splitting criterion. This splitting process continues until the data within each node becomes highly uniform or a predefined stopping condition is met. Internal nodes represent decision conditions used to split the data, while leaf nodes represent the final predicted class.</p>
-          <h4 id="1-splitting-criteria">1. Splitting Criteria</h4>
-          <p>To determine the best split at each node, Decision Trees commonly use <strong>Gini Index</strong> and <strong>Entropy</strong> as splitting criteria. The Gini Index measures the impurity of a node and represents the probability of incorrectly classifying a randomly chosen sample if it were labeled according to the class distribution in that node. Lower Gini values indicate purer nodes, and the Gini value becomes zero when all samples belong to a single class. However, it is slightly biased toward dominant classes.</p>
-          <p>Entropy, on the other hand, measures the amount of uncertainty or disorder in a node and is derived from information theory. It is used to calculate Information Gain, which helps in selecting the most informative feature for splitting. Entropy is zero for a perfectly pure node, while higher entropy values indicate greater disorder. It is sensitive to small changes in class distribution and often produces balanced and informative splits.</p>
-          <div style="text-align: center; margin: 15px 0;">
-          <img src="images/decision-trees.png" alt="Decision Tree" style="max-height: 300px; width: auto;">
+              <style>
+          .formula-block {
+              text-align: center;
+              margin: 20px 0;
+          }
+          
+          .formula-text {
+              display: inline-block;
+              font-family: "Cambria Math", "Times New Roman", "Georgia", serif;
+              font-size: 1.2em;
+              line-height: 1.45;
+          }
+          
+          .figure-block {
+              text-align: center;
+              margin: 18px 0;
+          }
+          
+          .figure-block img {
+              max-height: 320px;
+              width: auto;
+          }
+          
+          .figure-caption {
+              color: #64748b;
+              font-size: 0.92rem;
+              margin-top: 8px;
+              font-style: italic;
+          }
+          </style>
+          
+          <h3 id="1-introduction-to-decision-tree">1. Introduction to Decision Tree</h3>
+          <p>A Decision Tree is one of the most popular supervised machine learning algorithms used for both classification and regression problems. It is called a decision tree because its structure resembles a tree where decisions are made step by step.</p>
+          <p>In a decision tree, the dataset is divided into smaller groups based on conditions on the features. These conditions are arranged in a tree-like structure where each path from the root node to a leaf node represents a sequence of decisions that leads to a final prediction.</p>
+          <p>Because of its simple structure and easy interpretation, the decision tree algorithm is widely used in applications such as medical diagnosis, customer purchase prediction, loan approval systems, and fraud detection.</p>
+          <h3 id="2-structure-of-a-decision-tree">2. Structure of a Decision Tree</h3>
+          <p>A decision tree consists of several components that together form the structure of the model, as shown in Figure 1.</p>
+          <h4 id="21-root-node">2.1 Root Node</h4>
+          <p>The root node is the topmost node of the decision tree. It represents the entire dataset and is the starting point of the decision-making process. The algorithm selects the most informative feature at this node to split the dataset.</p>
+          <h4 id="22-internal-nodes">2.2 Internal Nodes</h4>
+          <p>Internal nodes are also called decision nodes. These nodes represent conditions or tests applied to the dataset. Based on the result of the test, the data moves to the next branch.</p>
+          <h4 id="23-branches">2.3 Branches</h4>
+          <p>Branches represent the possible outcomes of a test performed at a node. Each branch connects one node to another and shows the direction that the data follows depending on the attribute value.</p>
+          <h4 id="24-leaf-nodes">2.4 Leaf Nodes</h4>
+          <p>Leaf nodes are also called terminal nodes. These nodes represent the final decision or prediction made by the model. In classification problems, they represent class labels, while in regression problems they represent numerical values.</p>
+          <div class="figure-block">
+          <img src="images/decision-trees.png" alt="Basic structure of a Decision Tree">
+          <p class="figure-caption">Figure 1: Basic structure of a Decision Tree (Root Node, Internal Nodes, and Leaf Nodes).</p>
           </div>
           
-          <h4 id="2-merits-of-decision-tree">2. Merits of Decision Tree</h4>
+          <h3 id="3-decision-tree-learning-concept">3. Decision Tree Learning Concept</h3>
+          <p>The learning process of a decision tree revolves around one central principle: recursively partitioning the training data into progressively purer subsets with respect to the target variable. The goal is to create regions in feature space where most or all samples belong to the same class (for classification) or have similar output values (for regression).</p>
+          <p>At the start of training, the entire dataset is placed at the root node. The algorithm then searches all available features and possible split points for each feature to find the split that best separates the data. Once a split is chosen, the data is divided into subsets, and the same process is applied recursively to each subset. This continues until a stopping condition is met.</p>
+          <p>The concept of homogeneity is central to this process. A node is considered pure if all the samples it contains belong to the same class. As the tree grows deeper, each node should ideally contain a more homogeneous set of samples than its parent.</p>
+          <p>This recursive partitioning allows decision trees to model complex, non-linear relationships between features and the target variable without requiring explicit feature engineering. At each level, the algorithm makes a locally optimal split (a greedy choice), which is computationally efficient but does not always guarantee a globally optimal tree.</p>
+          <h3 id="4-splitting-criteria">4. Splitting Criteria</h3>
+          <p>To decide which feature should be used to split the dataset at each node, the decision tree algorithm uses mathematical measures called splitting criteria. Two common criteria are Entropy (Information Gain) and Gini Index.</p>
+          <h4 id="41-entropy">4.1 Entropy</h4>
+          <p>Entropy measures uncertainty or impurity in a dataset. If all samples belong to one class, entropy is zero (perfect purity). If the dataset contains a mixture of classes, entropy is higher.</p>
+          <div class="formula-block">
+              <span class="formula-text">
+                  <i>Entropy</i>(<i>S</i>) = - ∑<sub><i>i</i></sub> <i>p</i><sub>i</sub> log<sub>2</sub>(<i>p</i><sub>i</sub>)
+              </span>
+          </div>
+          
+          <p>where <i>p</i><sub>i</sub> is the probability of class <i>i</i>.</p>
+          <p>Using entropy, the algorithm computes Information Gain, which measures how much uncertainty is reduced after splitting the data using a feature. The feature with the highest information gain is selected.</p>
+          <h4 id="42-gini-index">4.2 Gini Index</h4>
+          <p>The Gini Index is another impurity measure. It represents the probability of incorrectly classifying a randomly chosen sample if it were labeled according to the class distribution in the node.</p>
+          <div class="formula-block">
+              <span class="formula-text">
+                  <i>Gini</i> = 1 - ∑<sub><i>i</i></sub> (<i>p</i><sub>i</sub>)<sup>2</sup>
+              </span>
+          </div>
+          
+          <p>A lower Gini value indicates a purer node.</p>
+          <h3 id="5-tree-construction-process">5. Tree Construction Process</h3>
+          <p>The construction of a decision tree follows a top-down recursive process:</p>
+          <ol>
+          <li>Place the full training dataset at the root node.</li>
+          <li>Evaluate every feature and possible split threshold.</li>
+          <li>Compute split quality using Entropy or Gini.</li>
+          <li>Select the best feature and split point.</li>
+          <li>Divide data into child subsets.</li>
+          <li>Recursively repeat for each child node.</li>
+          <li>Stop when stopping conditions are met and assign leaf labels.</li>
+          </ol>
+          <p>Common stopping conditions include:</p>
           <ul>
-          <li><strong>Easy to Understand and Interpret:</strong> The tree structure is simple and intuitive, making it easy to visualize and explain decisions.</li>
-          <li><strong>Handles Both Numerical and Categorical Data:</strong> Decision Trees can work with different types of data without much preprocessing.</li>
-          <li><strong>No Need for Feature Scaling:</strong> Normalization or standardization is not required, as trees are not affected by feature scaling.</li>
+          <li>All samples at a node belong to one class.</li>
+          <li>Node sample count becomes too small.</li>
+          <li>Maximum depth is reached.</li>
+          <li>Further splits do not improve impurity significantly.</li>
           </ul>
-          <h4 id="3-demerits-of-decision-tree">3. Demerits of Decision Tree</h4>
+          <p>Because tree growth is greedy and local, pruning and ensemble methods are often used to improve performance.</p>
+          <h3 id="6-pruning-techniques">6. Pruning Techniques</h3>
+          <p>One major challenge with decision trees is overfitting. If the tree grows without restrictions, it may memorize noise and outliers, reducing performance on unseen data.</p>
+          <h4 id="61-pre-pruning-early-stopping">6.1 Pre-Pruning (Early Stopping)</h4>
+          <p>Pre-pruning stops growth during tree construction itself. Common strategies include:</p>
           <ul>
-          <li><strong>Prone to Overfitting:</strong> A deep decision tree may fit noise in the training data, reducing generalization.</li>
-          <li><strong>Unstable Model:</strong> Small changes in data can lead to a completely different tree structure.</li>
-          <li><strong>Lower Accuracy Compared to Ensembles:</strong> Single decision trees often perform worse than ensemble methods like Random Forest.</li>
+          <li>Limiting maximum depth.</li>
+          <li>Requiring minimum samples to split a node.</li>
+          <li>Requiring minimum impurity reduction for a split.</li>
           </ul>
-          <h4 id="4-algorithm">4. Algorithm</h4>
+          <p>It is computationally efficient but may stop too early, causing underfitting.</p>
+          <h4 id="62-post-pruning">6.2 Post-Pruning</h4>
+          <p>Post-pruning first grows a full tree, then removes weak branches using validation performance. A widely used method is Cost-Complexity Pruning with parameter <i>α</i>, which balances accuracy and model complexity.</p>
+          <p>Larger <i>α</i> values produce smaller trees; smaller <i>α</i> values allow larger trees. Cross-validation is commonly used to choose the best <i>α</i>.</p>
+          <h3 id="7-decision-tree-algorithm">7. Decision Tree Algorithm</h3>
+          <p><strong>Step 1:</strong> Start with the full dataset at the root node.<br><strong>Step 2:</strong> If all samples belong to one class, create a leaf node and stop.<br><strong>Step 3:</strong> If no features remain, create a leaf with majority class and stop.<br><strong>Step 4:</strong> Select the best split.</p>
+          <p>For Gini impurity:</p>
+          <div class="formula-block">
+              <span class="formula-text">
+                  <i>Gini(node)</i> = 1 - ∑<sub><i>i</i></sub>(<i>p</i><sub>i</sub>)<sup>2</sup>
+              </span>
+          </div>
+          
+          <div class="formula-block">
+              <span class="formula-text">
+                  <i>Gini</i><sub><i>split</i></sub> = (<i>n</i><sub><i>left</i></sub> / <i>n</i><sub><i>total</i></sub>) <i>Gini</i><sub><i>left</i></sub> + (<i>n</i><sub><i>right</i></sub> / <i>n</i><sub><i>total</i></sub>) <i>Gini</i><sub><i>right</i></sub>
+              </span>
+          </div>
+          
+          <p>Choose the split with minimum Gini.</p>
+          <p>For information gain (entropy):</p>
+          <div class="formula-block">
+              <span class="formula-text">
+                  <i>Entropy(node)</i> = - ∑<sub><i>i</i></sub> <i>p</i><sub>i</sub> log<sub>2</sub>(<i>p</i><sub>i</sub>)
+              </span>
+          </div>
+          
+          <div class="formula-block">
+              <span class="formula-text">
+                  <i>Information Gain</i> = <i>Entropy(parent)</i> - <i>Weighted Entropy(children)</i>
+              </span>
+          </div>
+          
+          <p>Choose the split with maximum information gain.</p>
+          <p><strong>Step 5:</strong> Create child nodes.<br><strong>Step 6:</strong> Recursively repeat Steps 2-5.<br><strong>Step 7 (Prediction):</strong> Traverse from root to leaf based on feature tests and return the leaf class.</p>
+          <h3 id="8-merits-of-decision-trees">8. Merits of Decision Trees</h3>
           <ul>
-          <li><strong>Step 1:</strong> Start with entire dataset at root node</li>
-          <li><strong>Step 2:</strong> If all samples belong to same class, Create leaf node with that class label, <strong>STOP</strong></li>
-          <li><strong>Step 3:</strong> If no features remaining, Create leaf node with majority class, and <strong>STOP</strong></li>
-          <li><strong>Step 4:</strong> Select the best feature to split on:<ul>
-          <li><strong>Using Gini Impurity:</strong><ul>
-          <li><code>Gini(node) = 1 - Σ(pᵢ)²</code></li>
-          <li>Where pᵢ = proportion of class i in the node</li>
-          <li>For each feature and each possible split value:<ul>
-          <li>Calculate weighted Gini of child nodes</li>
-          <li><code>Gini_split = (n_left/n_total) × Gini_left + (n_right/n_total) × Gini_right</code></li>
+          <li><strong>Interpretability and transparency:</strong> Easy to understand and explain.</li>
+          <li><strong>Minimal preprocessing:</strong> No need for normalization or standardization.</li>
+          <li><strong>Mixed data support:</strong> Handles both numerical and categorical features.</li>
+          <li><strong>Automatic feature selection:</strong> Uses the most informative features during splitting.</li>
+          <li><strong>Non-linear modeling:</strong> Captures non-linear relationships naturally.</li>
+          <li><strong>Fast inference:</strong> Prediction is efficient after training.</li>
           </ul>
-          </li>
-          <li>Select split with <strong>LOWEST</strong> Gini</li>
-          </ul>
-          </li>
-          <li><strong>Using Information Gain (Entropy):</strong><ul>
-          <li><code>Entropy(node) = -Σ(pᵢ × log₂(pᵢ))</code></li>
-          <li><code>Information Gain = Entropy(parent) - Weighted_Entropy(children)</code></li>
-          <li>Select split with <strong>HIGHEST</strong> Information Gain</li>
-          </ul>
-          </li>
-          </ul>
-          </li>
-          <li><strong>Step 5:</strong> Create child nodes based on the split condition</li>
-          <li><strong>Step 6:</strong> Recursively apply Steps 2-5 to each child node</li>
-          <li><strong>Step 7:</strong> For prediction:<ul>
-          <li>Start at root node</li>
-          <li>At each node, check the split condition</li>
-          <li>Move to left or right child based on feature value</li>
-          <li>Continue until reaching a leaf node</li>
-          <li>Return the class label of the leaf</li>
-          </ul>
-          </li>
+          <h3 id="9-demerits-of-decision-trees">9. Demerits of Decision Trees</h3>
+          <ul>
+          <li><strong>Prone to overfitting:</strong> Deep trees can memorize noise.</li>
+          <li><strong>High variance / instability:</strong> Small data changes may produce different trees.</li>
+          <li><strong>Greedy local decisions:</strong> May miss globally optimal structure.</li>
+          <li><strong>Complex-pattern limitation:</strong> Very deep trees may be needed for some patterns.</li>
+          <li><strong>Feature-level bias:</strong> Can prefer high-cardinality features.</li>
+          <li><strong>Lower standalone accuracy:</strong> Usually less accurate than ensembles like Random Forest or Gradient Boosting.</li>
           </ul>
           
           </div>
