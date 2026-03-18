@@ -2,37 +2,54 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "Which technique is used to improve Decision Tree stability?",
+      "question": "In Scikit-learn, which class is used for Decision Tree classification?",
       "answers": {
-        "a": "Pruning",
-        "b": "Bagging",
-        "c": "Normalization",
-        "d": "Standardization"
+        "a": "DecisionTreeModel",
+        "b": "TreeClassifier",
+        "c": "DecisionTreeClassifier",
+        "d": "DTClassifier"
       },
       "explanations": {
-        "a": "Incorrect: Pruning removes unnecessary branches to reduce overfitting, but it does not directly improve stability across different datasets.",
-        "b": "Correct: Bagging trains multiple Decision Trees on different bootstrap samples and averages their outputs. This reduces variance and improves overall model stability.",
-        "c": "Incorrect: Normalization rescales feature values, but Decision Trees are scale-invariant, so it does not affect stability.",
-        "d": "Incorrect: Standardization changes data distribution, but it has little impact on Decision Tree behavior."
-      },
-      "correctAnswer": "b",
-      "difficulty": "intermediate"
-    },
-    {
-      "question": "Advantage of Decision Trees?",
-      "answers": {
-        "a": "Requires feature scaling",
-        "b": "Black-box model",
-        "c": "Easy to interpret",
-        "d": "High bias"
-      },
-      "explanations": {
-        "a": "Incorrect: Decision Trees do not require feature scaling, but this is not an advantage.",
-        "b": "Incorrect: Decision Trees are transparent models, not black-box models.",
-        "c": "Correct: Decision Trees are easy to interpret because decisions are represented in a clear tree structure.",
-        "d": "Incorrect: High bias is a disadvantage, not an advantage."
+        "a": "Incorrect: This class does not exist in Scikit-learn.",
+        "b": "Incorrect: This is not a valid Scikit-learn class.",
+        "c": "Correct: This is the Scikit-learn class used for decision tree classification tasks.",
+        "d": "Incorrect: This is not a Scikit-learn class."
       },
       "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Using which parameter can we control overfitting in a Decision Tree?",
+      "answers": {
+        "a": "n estimator",
+        "b": "Learning rate",
+        "c": "Batch size",
+        "d": "Max depth"
+      },
+      "explanations": {
+        "a": "Incorrect: This parameter is used in ensemble methods like Random Forest, not a single decision tree.",
+        "b": "Incorrect: This is relevant for boosting algorithms, not standard decision trees.",
+        "c": "Incorrect: Batch size is used in neural networks, not decision trees.",
+        "d": "Correct: Limiting the depth of a tree helps prevent overfitting by restricting model complexity."
+      },
+      "correctAnswer": "d",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Which feature is used to reduce variance in Decision Trees?",
+      "answers": {
+        "a": "Feature scaling",
+        "b": "Ensemble learning",
+        "c": "Data normalization",
+        "d": "Dimensionality reduction"
+      },
+      "explanations": {
+        "a": "Incorrect: Scaling does not reduce variance in trees since they are not distance-based.",
+        "b": "Correct: Methods like Bagging and Random Forest reduce variance by averaging multiple trees.",
+        "c": "Incorrect: Normalization does not impact tree variance.",
+        "d": "Incorrect: Reducing dimensions may help with overfitting, but variance reduction is mainly achieved via ensembles."
+      },
+      "correctAnswer": "b",
       "difficulty": "beginner"
     },
     {
@@ -44,64 +61,30 @@
         "d": "max depth"
       },
       "explanations": {
-        "a": "Incorrect: This parameter controls the minimum samples required to split a node, not tree depth.",
-        "b": "Incorrect: It controls the minimum samples in a leaf node but does not directly limit depth.",
-        "c": "Incorrect: The criterion parameter selects the split quality measure, not depth.",
-        "d": "Correct: The max depth parameter directly limits how deep the tree can grow, helping control complexity and overfitting."
+        "a": "Incorrect: This controls the minimum samples required to split a node, not overall depth.",
+        "b": "Incorrect: This controls the minimum samples required at leaf nodes, not tree depth.",
+        "c": "Incorrect: This defines the function to measure split quality, not depth.",
+        "d": "Correct: This parameter directly limits the depth of the tree to prevent overfitting."
       },
       "correctAnswer": "d",
-      "difficulty": "intermediate"
-    },
-    {
-      "question": "Which metric is commonly used to evaluate classification performance?",
-      "answers": {
-        "a": "Mean Absolute Error",
-        "b": "Mean Squared Error",
-        "c": "Accuracy",
-        "d": "R-squared"
-      },
-      "explanations": {
-        "a": "Incorrect: MAE is used for regression, not classification.",
-        "b": "Incorrect: MSE is also a regression metric.",
-        "c": "Correct: Accuracy measures the proportion of correctly classified instances and is widely used for classification tasks.",
-        "d": "Incorrect: R-squared is used to evaluate regression models."
-      },
-      "correctAnswer": "c",
       "difficulty": "beginner"
     },
     {
-      "question": "Which splitting criterion is based on information theory?",
+      "question": "Which technique is used to improve Decision Tree stability?",
       "answers": {
-        "a": "Gini Index",
-        "b": "Variance",
-        "c": "Entropy",
-        "d": "Euclidean Distance"
+        "a": "Pruning",
+        "b": "Bagging",
+        "c": "Normalization",
+        "d": "Standardization"
       },
       "explanations": {
-        "a": "Incorrect: Gini Index measures impurity but is not directly based on information theory.",
-        "b": "Incorrect: Variance is used in regression trees and has no information-theoretic basis.",
-        "c": "Correct: Entropy originates from information theory and is used to compute Information Gain.",
-        "d": "Incorrect: Euclidean Distance is used in clustering algorithms."
+        "a": "Incorrect: Pruning reduces overfitting but does not significantly improve model stability.",
+        "b": "Correct: Bagging combines multiple trees to reduce variance and improve stability.",
+        "c": "Incorrect: Normalization has no effect on tree stability.",
+        "d": "Incorrect: Standardization is not required for decision trees and does not affect stability."
       },
-      "correctAnswer": "c",
-      "difficulty": "intermediate"
-    },
-    {
-      "question": "What happens if a Decision Tree grows too deep?",
-      "answers": {
-        "a": "Underfitting",
-        "b": "Improved generalization",
-        "c": "Overfitting",
-        "d": "Reduced variance"
-      },
-      "explanations": {
-        "a": "Incorrect: Underfitting occurs when a model is too simple, not too complex.",
-        "b": "Incorrect: Deep trees usually perform poorly on unseen data.",
-        "c": "Correct: A very deep Decision Tree memorizes training data, leading to overfitting and poor test performance.",
-        "d": "Incorrect: Reduced variance is achieved using ensemble methods, not deep trees."
-      },
-      "correctAnswer": "c",
-      "difficulty": "intermediate"
+      "correctAnswer": "b",
+      "difficulty": "beginner"
     },
     {
       "question": "What does a Decision Tree use to choose the first split at the root node?",
@@ -112,30 +95,13 @@
         "d": "Feature with minimum depth"
       },
       "explanations": {
-        "a": "Incorrect: Random selection is used in Random Forests, not in a single Decision Tree.",
-        "b": "Correct: The root node split is chosen based on the feature that results in the maximum reduction in impurity (e.g., highest Information Gain or lowest Gini).",
-        "c": "Incorrect: Variance is mainly used in regression trees, not classification impurity selection.",
-        "d": "Incorrect: Depth is a result of splitting, not a criterion for choosing splits."
+        "a": "Incorrect: Decision Trees do not randomly select features for splitting; they choose based on impurity reduction.",
+        "b": "Correct: The feature that maximizes impurity reduction (Gini or entropy) is chosen for the root split.",
+        "c": "Incorrect: Variance is not used as a criterion for classification trees; it is relevant for regression.",
+        "d": "Incorrect: Depth is a property of the tree, not of features, so it is not used for splitting."
       },
       "correctAnswer": "b",
-      "difficulty": "intermediate"
-    },
-    {
-      "question": "Which drawback of Decision Trees is reduced by Random Forests?",
-      "answers": {
-        "a": "High bias",
-        "b": "Sensitivity to outliers",
-        "c": "High variance",
-        "d": "Requirement of labeled data"
-      },
-      "explanations": {
-        "a": "Incorrect: Random Forest mainly addresses variance, not bias.",
-        "b": "Incorrect: Decision Trees are relatively robust to outliers.",
-        "c": "Correct: Random Forest reduces high variance by averaging predictions from multiple Decision Trees.",
-        "d": "Incorrect: Labeled data is required for all supervised models, including Random Forests."
-      },
-      "correctAnswer": "c",
-      "difficulty": "intermediate"
+      "difficulty": "advanced"
     },
     {
       "question": "Which parameter ensures that a leaf node has a minimum number of samples?",
@@ -146,13 +112,13 @@
         "d": "n estimator"
       },
       "explanations": {
-        "a": "Incorrect: Max depth limits the height of the tree but does not control samples in a leaf.",
-        "b": "Incorrect: This controls the minimum samples required to split a node, not to form a leaf.",
-        "c": "Correct: min samples leaf ensures that each leaf node contains at least a specified number of samples, helping reduce overfitting.",
-        "d": "Incorrect: n estimator is used in ensemble models, not in individual Decision Trees."
+        "a": "Incorrect: Max depth controls how deep the tree can grow, not the minimum samples per leaf.",
+        "b": "Incorrect: This controls the minimum number of samples required to split an internal node, not the leaf.",
+        "c": "Correct: This ensures that a leaf node has at least a minimum number of samples, reducing overfitting.",
+        "d": "Incorrect: This parameter is used in ensemble methods like Random Forest, not in a single Decision Tree."
       },
       "correctAnswer": "c",
-      "difficulty": "intermediate"
+      "difficulty": "advanced"
     },
     {
       "question": "Which property of Decision Trees makes them insensitive to feature scaling?",
@@ -163,13 +129,47 @@
         "d": "Dependence on distance metrics"
       },
       "explanations": {
-        "a": "Incorrect: Greedy splitting selects the best split locally but does not explain scale insensitivity.",
-        "b": "Correct: Decision Trees split data using conditions like ≤ or > a threshold, so relative ordering matters, not the actual scale of feature values.",
-        "c": "Incorrect: Decision Trees do not use gradient descent for training.",
-        "d": "Incorrect: Distance metrics are used in algorithms like KNN, not Decision Trees."
+        "a": "Incorrect: The greedy approach decides splits locally but does not explain insensitivity to scaling.",
+        "b": "Correct: Decision Trees split data using thresholds on feature values, so scaling does not affect split ordering.",
+        "c": "Incorrect: Gradient descent is used in neural networks, not Decision Trees.",
+        "d": "Incorrect: Decision Trees do not rely on distances, so this is irrelevant."
       },
       "correctAnswer": "b",
-      "difficulty": "intermediate"
+      "difficulty": "advanced"
+    },
+    {
+      "question": "Which technique in Decision Trees helps to handle missing values in the dataset?",
+      "answers": {
+        "a": "Ignoring rows with missing data",
+        "b": "Using surrogate splits",
+        "c": "Feature scaling",
+        "d": "Pruning"
+      },
+      "explanations": {
+        "a": "Incorrect: This can lose valuable information and is not a built-in tree strategy.",
+        "b": "Correct: Decision Trees can use surrogate splits to make decisions when a feature value is missing.",
+        "c": "Incorrect: Scaling does not help with missing values.",
+        "d": "Incorrect: Pruning reduces overfitting but does not handle missing values."
+      },
+      "correctAnswer": "b",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "How does increasing max_features in a Decision Tree affect splitting?",
+      "answers": {
+        "a": "It restricts the number of features considered at each split",
+        "b": "It increases the maximum depth of the tree",
+        "c": "It changes the splitting criterion",
+        "d": "It guarantees higher accuracy"
+      },
+      "explanations": {
+        "a": "Correct: max_features limits how many features are evaluated at each node, adding randomness and helping against overfitting.",
+        "b": "Incorrect: max_features does not control tree depth.",
+        "c": "Incorrect: The splitting criterion (gini or entropy) is independent of max_features.",
+        "d": "Incorrect: Limiting features can improve generalization but does not guarantee better accuracy."
+      },
+      "correctAnswer": "a",
+      "difficulty": "advanced"
     }
   ]
 }

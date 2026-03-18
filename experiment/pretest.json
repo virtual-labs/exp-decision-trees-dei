@@ -2,7 +2,7 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "Learning type of Decision Tree?",
+      "question": "What is the learning type of Decision Tree?",
       "answers": {
         "a": "Unsupervised",
         "b": "Reinforcement",
@@ -10,10 +10,10 @@
         "d": "Semi-supervised"
       },
       "explanations": {
-        "a": "Incorrect: Unsupervised learning works without labeled output data and focuses on discovering hidden patterns. Decision Trees require known class labels to decide how to split the data, so unsupervised learning is not suitable.",
-        "b": "Incorrect: Reinforcement learning depends on interaction with an environment using rewards and penalties. Decision Trees do not learn through feedback or delayed rewards, making this option incorrect.",
-        "c": "Correct: Decision Trees learn from labeled input–output pairs and build decision rules based on known target values. Hence, Decision Trees are classified as supervised learning algorithms.",
-        "d": "Incorrect: Semi-supervised learning uses a combination of labeled and unlabeled data. Standard Decision Tree algorithms are trained entirely on labeled datasets and do not rely on unlabeled data."
+        "a": "Incorrect: Decision Trees normally use labeled data for prediction, so they are not an unsupervised learning method.",
+        "b": "Incorrect: Reinforcement learning is based on rewards and actions, which is different from how Decision Trees work.",
+        "c": "Correct: Decision Trees learn from labeled training data to perform classification or regression tasks.",
+        "d": "Incorrect: Semi-supervised learning uses both labeled and unlabeled data, which is not the standard approach for Decision Trees."
       },
       "correctAnswer": "c",
       "difficulty": "beginner"
@@ -27,132 +27,47 @@
         "d": "Leaf node"
       },
       "explanations": {
-        "a": "Incorrect: The root node is the starting point of the Decision Tree and performs the first split, but it does not provide the final prediction.",
-        "b": "Incorrect: Internal nodes further divide the dataset based on conditions but do not represent the final outcome.",
-        "c": "Incorrect: A parent node is any node that has child nodes and does not necessarily give the final result.",
-        "d": "Correct: A leaf node represents the end of a decision path and provides the final predicted class or value, making it the correct answer."
+        "a": "Incorrect: The root node is the starting point of the decision tree, not the final result.",
+        "b": "Incorrect: Internal nodes represent decision conditions, not the final output.",
+        "c": "Incorrect: A parent node is simply a node that has child nodes, not the final prediction.",
+        "d": "Correct: The leaf node represents the final decision or output of the decision tree."
       },
       "correctAnswer": "d",
       "difficulty": "beginner"
     },
     {
-      "question": "Using which parameter can we control overfitting in a Decision Tree?",
+      "question": "What is the effect of using too many features for splitting?",
       "answers": {
-        "a": "n estimator",
-        "b": "Learning rate",
-        "c": "Batch size",
-        "d": "Max depth"
+        "a": "The tree always becomes more accurate",
+        "b": "The tree may become unstable",
+        "c": "The algorithm stops training",
+        "d": "The dataset becomes normalized automatically"
       },
       "explanations": {
-        "a": "Incorrect: The n estimator parameter is used in ensemble models like Random Forests, not in a single Decision Tree.",
-        "b": "Incorrect: Learning rate is mainly used in boosting algorithms and neural networks, not in Decision Trees.",
-        "c": "Incorrect: Batch size is related to gradient-based optimization methods, which Decision Trees do not use.",
-        "d": "Correct: Max depth limits how deep the tree can grow, preventing it from learning noise and thereby reducing overfitting."
-      },
-      "correctAnswer": "d",
-      "difficulty": "intermediate"
-    },
-    {
-      "question": "What is the main reason Decision Trees are prone to overfitting?",
-      "answers": {
-        "a": "They use ensemble techniques",
-        "b": "They create very deep trees that memorize training data",
-        "c": "They cannot handle missing values",
-        "d": "They require feature scaling"
-      },
-      "explanations": {
-        "a": "Incorrect: Ensemble techniques like Random Forest actually reduce overfitting.",
-        "b": "Correct: Deep Decision Trees can fit noise in the training data, leading to overfitting.",
-        "c": "Incorrect: Some Decision Tree implementations can handle missing values.",
-        "d": "Incorrect: Decision Trees are scale-invariant and do not require feature scaling."
+        "a": "Incorrect: Using many features does not guarantee higher accuracy and may introduce unnecessary complexity.",
+        "b": "Correct: Decision Trees can become unstable, meaning small changes in the data may produce a very different tree structure.",
+        "c": "Incorrect: Decision Trees do not stop training because of many features; they simply choose the best feature for splitting.",
+        "d": "Incorrect: Feature normalization is not automatically performed by Decision Tree algorithms."
       },
       "correctAnswer": "b",
-      "difficulty": "intermediate"
-    },
-    {
-      "question": "Why is pruning used in a Decision Tree?",
-      "answers": {
-        "a": "Reduce overfitting",
-        "b": "Reduce max depth",
-        "c": "Increase training time",
-        "d": "Increase max depth"
-      },
-      "explanations": {
-        "a": "Correct: Pruning removes unnecessary branches that cause the model to fit noise in the training data, thereby reducing overfitting.",
-        "b": "Incorrect: Reducing max depth is one technique, but pruning focuses on removing weak branches.",
-        "c": "Incorrect: Pruning usually simplifies the tree and reduces computational complexity.",
-        "d": "Incorrect: Pruning never increases the depth of the tree."
-      },
-      "correctAnswer": "a",
-      "difficulty": "intermediate"
-    },
-    {
-      "question": "In Scikit-learn, which class is used for Decision Tree classification?",
-      "answers": {
-        "a": "DecisionTreeModel",
-        "b": "TreeClassifier",
-        "c": "DecisionTreeClassifier",
-        "d": "DTClassifier"
-      },
-      "explanations": {
-        "a": "Incorrect: This class does not exist in the Scikit-learn library.",
-        "b": "Incorrect: TreeClassifier is not a valid Scikit-learn class.",
-        "c": "Correct: DecisionTreeClassifier is the official Scikit-learn class used to implement Decision Tree classification models.",
-        "d": "Incorrect: DTClassifier is not defined in Scikit-learn."
-      },
-      "correctAnswer": "c",
       "difficulty": "beginner"
     },
     {
-      "question": "Which type of machine learning does Decision Tree belong to?",
+      "question": "What happens if a Decision Tree grows too deep?",
       "answers": {
-        "a": "Unsupervised learning",
-        "b": "Reinforcement learning",
-        "c": "Supervised learning",
-        "d": "Clustering"
+        "a": "Underfitting",
+        "b": "Improved generalization",
+        "c": "Overfitting",
+        "d": "Reduced variance"
       },
       "explanations": {
-        "a": "Incorrect: Unsupervised learning works without labeled output data, while Decision Trees require labels.",
-        "b": "Incorrect: Decision Trees do not learn through rewards or penalties.",
-        "c": "Correct: Decision Trees learn from labeled input–output pairs, so they belong to supervised learning.",
-        "d": "Incorrect: Clustering is an unsupervised task and does not involve prediction."
+        "a": "Incorrect: Underfitting occurs when the model is too simple, not when it grows too deep.",
+        "b": "Incorrect: A very deep tree often reduces generalization because it memorizes training data.",
+        "c": "Correct: When a tree grows too deep, it fits the training data too closely, causing overfitting.",
+        "d": "Incorrect: Deep trees usually increase variance, not reduce it."
       },
       "correctAnswer": "c",
       "difficulty": "beginner"
-    },
-    {
-      "question": "Which ensemble method combines multiple Decision Trees?",
-      "answers": {
-        "a": "K-Means",
-        "b": "Logistic Regression",
-        "c": "Random Forest",
-        "d": "Naive Bayes"
-      },
-      "explanations": {
-        "a": "Incorrect: K-Means is a clustering algorithm.",
-        "b": "Incorrect: Logistic Regression is a linear model.",
-        "c": "Correct: Random Forest builds multiple Decision Trees and combines their predictions to improve accuracy and reduce overfitting.",
-        "d": "Incorrect: Naive Bayes is a probabilistic classifier and does not use Decision Trees."
-      },
-      "correctAnswer": "c",
-      "difficulty": "intermediate"
-    },
-    {
-      "question": "Which feature is used to reduce variance in Decision Trees?",
-      "answers": {
-        "a": "Feature scaling",
-        "b": "Ensemble learning",
-        "c": "Data normalization",
-        "d": "Dimensionality reduction"
-      },
-      "explanations": {
-        "a": "Incorrect: Decision Trees are not sensitive to feature magnitudes.",
-        "b": "Correct: Ensemble learning combines predictions from multiple models, which effectively reduces variance.",
-        "c": "Incorrect: Normalization does not directly reduce variance in trees.",
-        "d": "Incorrect: It simplifies features but does not directly address variance."
-      },
-      "correctAnswer": "b",
-      "difficulty": "intermediate"
     },
     {
       "question": "Which metric is commonly used to decide the best split in a Decision Tree classifier?",
@@ -163,13 +78,98 @@
         "d": "Accuracy Score"
       },
       "explanations": {
-        "a": "Incorrect: MSE is mainly used in regression tasks, not classification splits.",
-        "b": "Correct: The Gini Index measures impurity and is widely used for classification trees.",
-        "c": "Incorrect: Euclidean distance is used in algorithms like KNN, not Decision Trees.",
-        "d": "Incorrect: Accuracy is used for model evaluation, not for selecting splits."
+        "a": "Incorrect: MSE is used in regression trees, not classification trees.",
+        "b": "Correct: Gini Index measures impurity and is commonly used to decide splits in classification trees.",
+        "c": "Incorrect: Distance metrics are not used as a split criterion in decision trees.",
+        "d": "Incorrect: Accuracy is a model evaluation metric, not a splitting criterion."
       },
       "correctAnswer": "b",
-      "difficulty": "intermediate"
+      "difficulty": "advanced"
+    },
+    {
+      "question": "What is the main reason Decision Trees are prone to overfitting?",
+      "answers": {
+        "a": "They use ensemble techniques",
+        "b": "They create very deep trees that memorize training data",
+        "c": "They cannot handle missing values",
+        "d": "They require feature scaling"
+      },
+      "explanations": {
+        "a": "Incorrect: Ensemble techniques actually reduce overfitting rather than causing it.",
+        "b": "Correct: Deep trees can perfectly fit training data, leading to overfitting.",
+        "c": "Incorrect: Handling missing values is a separate issue, not the main cause of overfitting.",
+        "d": "Incorrect: Decision trees do not require feature scaling, so this is unrelated."
+      },
+      "correctAnswer": "b",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "Why is pruning used in a Decision Tree?",
+      "answers": {
+        "a": "Reduce overfitting",
+        "b": "Reduce max depth",
+        "c": "Increase training time",
+        "d": "Increase max depth"
+      },
+      "explanations": {
+        "a": "Correct: Pruning removes unnecessary nodes to prevent the tree from fitting noise in the training data.",
+        "b": "Incorrect: Reducing depth is a technique to prevent overfitting, but pruning focuses on removing branches, not just limiting depth.",
+        "c": "Incorrect: Pruning actually reduces complexity and training time.",
+        "d": "Incorrect: Increasing depth would worsen overfitting, which pruning tries to avoid."
+      },
+      "correctAnswer": "a",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "Which splitting criterion is based on information theory?",
+      "answers": {
+        "a": "Gini Index",
+        "b": "Variance",
+        "c": "Entropy",
+        "d": "Euclidean Distance"
+      },
+      "explanations": {
+        "a": "Incorrect: Gini Index measures impurity but is not derived from information theory.",
+        "b": "Incorrect: Variance is used in regression trees, not information theory.",
+        "c": "Correct: Entropy is derived from information theory and measures uncertainty in a dataset.",
+        "d": "Incorrect: Distance metrics are unrelated to information theory splitting criteria."
+      },
+      "correctAnswer": "c",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "How does a Decision Tree handle categorical features?",
+      "answers": {
+        "a": "It requires one-hot encoding for categorical variables",
+        "b": "It ignores categorical features",
+        "c": "It automatically converts them into numeric values",
+        "d": "It cannot process datasets with categorical features"
+      },
+      "explanations": {
+        "a": "Correct: Scikit-learn's decision trees handle categorical data via one-hot encoding.",
+        "b": "Incorrect: Decision trees can process categorical features if encoded properly.",
+        "c": "Incorrect: Conversion to numeric (like label encoding) is not automatic in all libraries.",
+        "d": "Incorrect: Decision trees can handle categorical features if preprocessed."
+      },
+      "correctAnswer": "a",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "How does a Decision Tree treat continuous numerical features during splitting?",
+      "answers": {
+        "a": "It ignores continuous features",
+        "b": "It converts them into categorical features automatically",
+        "c": "It finds the best threshold to split the data",
+        "d": "It requires scaling to split continuous features"
+      },
+      "explanations": {
+        "a": "Incorrect: Decision Trees can handle continuous features by choosing threshold values for splits.",
+        "b": "Incorrect: Conversion is not automatic; the tree finds thresholds to split numerical values.",
+        "c": "Correct: The tree searches for a threshold that maximizes purity (for example, Gini reduction or entropy gain).",
+        "d": "Incorrect: Decision Trees do not require feature scaling; thresholds work on raw values."
+      },
+      "correctAnswer": "c",
+      "difficulty": "advanced"
     }
   ]
 }

@@ -84,7 +84,54 @@ data.tail()`,
         title: "Preprocessing",
         blocks: [
             {
-                code: `print("Statistical summary of the dataset:")
+                code: `# ==============================
+# DATASET DETAILS
+# ==============================
+print("1. Display Details of the Dataset\\n")
+print("Number of Records:", data.shape[0])
+print("Number of Features:", data.shape[1]-1)
+print("Target Variable: NObeyesdad")
+print("Prediction Objective: Predict the obesity level of a person based on lifestyle, eating habits, and physical characteristics.")`,
+                output: `<div class="output-text">1. Display Details of the Dataset<br><br>Number of Records: 2111<br>Number of Features: 16<br>Target Variable: NObeyesdad<br>Prediction Objective: Predict the obesity level of a person based on lifestyle, eating habits, and physical characteristics.</div>`
+            },
+            {
+                code: `# ==============================
+# DATASET PREVIEW SECTION
+# ==============================
+print("First 10 Rows of Dataset:\\n")
+data.head(10)
+
+print("Column Names in Dataset:\\n")
+print(list(data.columns))
+
+target_column = "NObeyesdad"
+print("Target Column:", target_column)`,
+                output: `<div class="output-text">First 10 Rows of Dataset displayed successfully.<br><br>Column Names in Dataset:<br>['Gender', 'Age', 'Height', 'Weight', 'family_history_with_overweight', 'FAVC', 'FCVC', 'NCP', 'CAEC', 'SMOKE', 'CH2O', 'SCC', 'FAF', 'TUE', 'CALC', 'MTRANS', 'NObeyesdad']<br><br>Target Column: NObeyesdad</div>`
+            },
+            {
+                code: `# ==============================
+# FEATURE SUMMARY PANEL
+# ==============================
+numerical_features = ["Age","Height","Weight","FCVC","NCP","CH2O","FAF","TUE"]
+categorical_features = ["Gender","family_history_with_overweight","FAVC","CAEC","SMOKE","SCC","CALC","MTRANS"]
+
+print("Numerical Features:")
+print(numerical_features)
+print("\\nCategorical Features:")
+print(categorical_features)`,
+                output: `<div class="output-text">Numerical Features:<br>['Age', 'Height', 'Weight', 'FCVC', 'NCP', 'CH2O', 'FAF', 'TUE']<br><br>Categorical Features:<br>['Gender', 'family_history_with_overweight', 'FAVC', 'CAEC', 'SMOKE', 'SCC', 'CALC', 'MTRANS']</div>`
+            },
+            {
+                code: `# FEATURE OF INTEREST PANEL
+target = "NObeyesdad"
+print("Feature descriptions generated for all input variables except target.")`,
+                output: `<div class="output-success">Feature of Interest Panel generated successfully with type/range/value context and descriptions for all predictor variables.</div>`
+            },
+            {
+                code: `# ==============================
+# STATISTICAL SUMMARY
+# ==============================
+print("Statistical summary of the dataset:")
 data.describe()`,
                 output: `<div class="output-header">Statistical summary of the dataset:</div>
 <div class="table-wrapper">
@@ -194,16 +241,25 @@ data.describe()`,
   </tbody>
 </table>
 </div>`
-            },
+            }
+        ]
+    },
+    {
+        title: "Data Preprocessing",
+        blocks: [
             {
-                code: `# Initialize LabelEncoder
+                code: `# ==============================
+# INITIALIZE LABEL ENCODER
+# ==============================
 le = LabelEncoder()
 target_names = []
 print("LabelEncoder initialized")`,
                 output: `<div class="output-text">LabelEncoder initialized</div>`
             },
             {
-                code: `# Apply encoding to categorical columns
+                code: `# ==============================
+# ENCODE CATEGORICAL COLUMNS
+# ==============================
 for col in data.columns:
     if data[col].dtype == 'object':
         data[col] = le.fit_transform(data[col])
@@ -213,7 +269,9 @@ print("Categorical variables encoded")`,
                 output: `<div class="output-success">Categorical variables encoded</div>`
             },
             {
-                code: `# Split data into training and testing sets
+                code: `# ==============================
+# TRAIN-TEST SPLIT
+# ==============================
 X = data.drop('NObeyesdad', axis=1)
 y = data['NObeyesdad']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
@@ -312,7 +370,7 @@ plt.figure(figsize=(20,10))
 plot_tree(clf, feature_names=X.columns, class_names=target_names, filled=True, rounded=True)
 plt.title(f"Decision Tree (Max Depth = {d})")
 plt.show()`,
-                output: `Max Depth: 2, Accuracy: 0.5432<br><br><img src="./images/decision_tree_depth_2_gini.png" style="max-width:100%; height:auto; border: 1px solid #ddd;">`
+                output: `<div class="output-text">Max Depth: 2, Accuracy: 0.5432</div><img src="./images/decision_tree_depth_2_gini.png" style="max-width:100%; height:auto; border: 1px solid #ddd;">`
             },
              {
                 code: `# Analyze Decision Tree with Max Depth = 4
@@ -325,7 +383,7 @@ plt.figure(figsize=(20,10))
 plot_tree(clf, feature_names=X.columns, class_names=target_names, filled=True, rounded=True)
 plt.title(f"Decision Tree (Max Depth = {d})")
 plt.show()`,
-                output: `Max Depth: 4, Accuracy: 0.9433<br><br><img src="./images/decision_tree_depth_4_gini.png" style="max-width:100%; height:auto; border: 1px solid #ddd;">`
+                output: `<div class="output-text">Max Depth: 4, Accuracy: 0.9433</div><img src="./images/decision_tree_depth_4_gini.png" style="max-width:100%; height:auto; border: 1px solid #ddd;">`
             },
             {
                  code: `# Analyze Decision Tree with Max Depth = 2 (Entropy)
@@ -338,7 +396,7 @@ plt.figure(figsize=(20,10))
 plot_tree(clf, feature_names=X.columns, class_names=target_names, filled=True, rounded=True)
 plt.title(f"Decision Tree (Max Depth = {d}, Entropy)")
 plt.show()`,
-                 output: `Max Depth (Entropy): 2, Accuracy: 0.9456<br><br><img src="./images/decision_tree_depth_2_entropy.png" style="max-width:100%; height:auto; border: 1px solid #ddd;">`
+                  output: `<div class="output-text">Max Depth (Entropy): 2, Accuracy: 0.9456</div><img src="./images/decision_tree_depth_2_entropy.png" style="max-width:100%; height:auto; border: 1px solid #ddd;">`
             },
             {
                  code: `# Analyze Decision Tree with Max Depth = 4 (Entropy)
@@ -351,7 +409,7 @@ plt.figure(figsize=(20,10))
 plot_tree(clf, feature_names=X.columns, class_names=target_names, filled=True, rounded=True)
 plt.title(f"Decision Tree (Max Depth = {d}, Entropy)")
 plt.show()`,
-                 output: `Max Depth (Entropy): 4, Accuracy: 0.9598<br><br><img src="./images/decision_tree_depth_4_entropy.png" style="max-width:100%; height:auto; border: 1px solid #ddd;">`
+                 output: `<div class="output-text">Max Depth (Entropy): 4, Accuracy: 0.9598</div><img src="./images/decision_tree_depth_4_entropy.png" style="max-width:100%; height:auto; border: 1px solid #ddd;">`
             }
         ]
     }
@@ -416,6 +474,59 @@ data.tail()`,
         title: "Data Preprocessing & Information",
         blocks: [
             {
+                code: `# ==============================
+# DATASET DETAILS
+# ==============================
+num_records = data.shape[0]
+num_features = data.shape[1]
+target_variable = "loan_status"
+
+print("===== DATASET DETAILS =====\\n")
+print("Number of Records:", num_records)
+print("Number of Features:", num_features)
+print("Target Variable:", target_variable)
+print("Prediction Objective: Predict whether a loan application will be Approved or Rejected.")`,
+                output: `<div class="output-text">===== DATASET DETAILS =====<br><br>Number of Records: 4269<br>Number of Features: 13<br>Target Variable: loan_status<br>Prediction Objective: Predict whether a loan application will be Approved or Rejected.</div>`
+            },
+            {
+                code: `# ==============================
+# DATASET PREVIEW SECTION
+# ==============================
+display(data.head(10))
+
+print("Column Names:")
+for col in data.columns:
+    print(col)
+
+target = "loan_status"
+print("\\nTarget Column ->", target)
+
+print("scrollable table")
+display(data)`,
+                output: `<div class="output-text">Dataset preview (top 10 rows) displayed.<br><br>Column Names printed in vertical format.<br><br>Target Column -> loan_status<br><br>Scrollable full dataset view displayed.</div>`
+            },
+            {
+                code: `# FEATURE SUMMARY PANEL
+numerical_features = data.select_dtypes(include=['int64','float64']).columns
+categorical_features = data.select_dtypes(include=['object']).columns
+
+print("===== FEATURE SUMMARY PANEL =====\\n")
+print("Numerical Features:")
+for col in numerical_features:
+    print("•", col)
+
+print("\\nCategorical Features:")
+for col in categorical_features:
+    print("•", col)`,
+                output: `<div class="output-text">===== FEATURE SUMMARY PANEL =====<br><br>Numerical Features:<br>• loan_id<br>• no_of_dependents<br>• income_annum<br>• loan_amount<br>• loan_term<br>• cibil_score<br>• residential_assets_value<br>• commercial_assets_value<br>• luxury_assets_value<br>• bank_asset_value<br><br>Categorical Features:<br>• education<br>• self_employed<br>• loan_status</div>`
+            },
+            {
+                code: `# FEATURE OF INTEREST PANEL
+target = "loan_status"
+print("Feature descriptions generated for all loan attributes except loan_id and target.")`,
+                output: `<div class="output-success">Feature of Interest Panel generated successfully with domain explanations for each predictive loan feature.</div>`
+            },
+            {
                 code: `# Target Column Encoding
 data.columns = data.columns.str.strip()
 data['loan_status'] = data['loan_status'].str.strip().map({
@@ -428,7 +539,9 @@ data.head()`,
                 output: `<div class="output-text">Target column loan_status encoded successfully</div><div class="table-wrapper"><table class="data-table"><thead><tr style="text-align: right;"><th></th><th>loan_id</th><th>no_of_dependents</th><th>education</th><th>self_employed</th><th>income_annum</th><th>loan_amount</th><th>loan_term</th><th>cibil_score</th><th>residential_assets_value</th><th>commercial_assets_value</th><th>luxury_assets_value</th><th>bank_asset_value</th><th>loan_status</th></tr></thead><tbody><tr><th>0</th><td>1</td><td>2</td><td>Graduate</td><td>No</td><td>9600000</td><td>29900000</td><td>12</td><td>778</td><td>2400000</td><td>17600000</td><td>22700000</td><td>8000000</td><td>1</td></tr><tr><th>1</th><td>2</td><td>0</td><td>Not Graduate</td><td>Yes</td><td>4100000</td><td>12200000</td><td>8</td><td>417</td><td>2700000</td><td>2200000</td><td>8800000</td><td>3300000</td><td>0</td></tr><tr><th>2</th><td>3</td><td>3</td><td>Graduate</td><td>No</td><td>9100000</td><td>29700000</td><td>20</td><td>506</td><td>7100000</td><td>4500000</td><td>33300000</td><td>12800000</td><td>0</td></tr><tr><th>3</th><td>4</td><td>3</td><td>Graduate</td><td>No</td><td>8200000</td><td>30700000</td><td>8</td><td>467</td><td>18200000</td><td>3300000</td><td>23300000</td><td>7900000</td><td>0</td></tr><tr><th>4</th><td>5</td><td>5</td><td>Not Graduate</td><td>Yes</td><td>9800000</td><td>24200000</td><td>20</td><td>382</td><td>12400000</td><td>8200000</td><td>29400000</td><td>5000000</td><td>0</td></tr></tbody></table></div>`
             },
             {
-                code: `#Data Information
+                code: `# ==============================
+# DATA INFORMATION
+# ==============================
 print("All Required Information Related To Data: ")
 data.info()`,
                 output: `<div class="output-text">All Required Information Related To Data:<br>&lt;class 'pandas.core.frame.DataFrame'&gt;<br>RangeIndex: 4269 entries, 0 to 4268<br>Data columns (total 13 columns):<br> #   Column                    Non-Null Count  Dtype <br>---  ------                    --------------  ----- <br> 0   loan_id                   4269 non-null   int64 <br> 1   no_of_dependents          4269 non-null   int64 <br> 2   education                 4269 non-null   object<br> 3   self_employed             4269 non-null   object<br> 4   income_annum              4269 non-null   int64 <br> 5   loan_amount               4269 non-null   int64 <br> 6   loan_term                 4269 non-null   int64 <br> 7   cibil_score               4269 non-null   int64 <br> 8   residential_assets_value  4269 non-null   int64 <br> 9   commercial_assets_value   4269 non-null   int64 <br> 10  luxury_assets_value       4269 non-null   int64 <br> 11  bank_asset_value          4269 non-null   int64 <br> 12  loan_status               4269 non-null   int64 <br>dtypes: int64(11), object(2)<br>memory usage: 433.7+ KB</div>`
@@ -942,7 +1055,7 @@ else:
         };
     } else {
         // Multiclass: similar logic
-        STEPS[4] = { ...(criterion === 'gini' ? baseSteps[3] : baseSteps[4]), title: "Model Training" };
+        STEPS[4] = { ...(criterion === 'gini' ? baseSteps[4] : baseSteps[5]), title: "Model Training" };
         STEPS[5] = { title: "Model Evaluation", blocks: [], placeholder: true };
         
         const modelVar = criterion === 'gini' ? 'model' : 'model_entropy';
@@ -1028,7 +1141,7 @@ function selectMaxDepth(depth) {
         };
     } else {
         // Multiclass
-        const sourceStep = baseSteps[5];
+        const sourceStep = baseSteps[6];
         let blockIndex = 0;
         if (criterion === 'gini') {
             blockIndex = (depth === 2) ? 0 : 1;
@@ -1709,16 +1822,19 @@ function updateVisualization() {
     
     // Update sidebar
     renderFeatureSidebar(sample);
-    
+
+    // Update SHAP chart
+    renderSHAPChart(sample, model, path);
+
     // Update true label
     const trueLabelValue = document.getElementById('trueLabelValue');
     if (trueLabelValue) {
         trueLabelValue.textContent = TREE_DATA.class_names[sample.true_label].replace(/_/g, ' ');
     }
-    
+
     // Render tree
     renderTree(model, path);
-    
+
     // Start animation
     setTimeout(() => startAnimation(sample, model, path), 500);
 }
@@ -1959,9 +2075,104 @@ function focusOnNode(node, targetScale, duration) {
     setCameraTransform(targetX, targetY, targetScale, duration);
 }
 
+// ==========================================
+// SHAP / FEATURE CONTRIBUTION CHART
+// ==========================================
+
+function getNodeProb(nodeId, nodes, probCache, classIndex) {
+    if (probCache.has(nodeId)) return probCache.get(nodeId);
+
+    const node = nodes.find(n => n.id === nodeId);
+    if (!node) return 0.5;
+
+    if (node.is_leaf) {
+        const prob = node.class_counts ? node.class_counts[classIndex] || 0 : 0.5;
+        probCache.set(nodeId, prob);
+        return prob;
+    }
+
+    const leftNode = nodes.find(n => n.id === node.left_child);
+    const rightNode = nodes.find(n => n.id === node.right_child);
+    if (!leftNode || !rightNode) return 0.5;
+
+    const leftProb = getNodeProb(node.left_child, nodes, probCache, classIndex);
+    const rightProb = getNodeProb(node.right_child, nodes, probCache, classIndex);
+
+    const totalSamples = leftNode.samples + rightNode.samples;
+    const prob = totalSamples > 0
+        ? (leftProb * leftNode.samples + rightProb * rightNode.samples) / totalSamples
+        : 0.5;
+    probCache.set(nodeId, prob);
+    return prob;
+}
+
+function renderSHAPChart(sample, model, pathIds) {
+    const container = document.getElementById('shapChartContainer');
+    if (!container) return;
+
+    // Determine class index to track (true label for this sample)
+    const classIndex = sample.true_label || 0;
+
+    // Build probability cache
+    const probCache = new Map();
+
+    // Sort path nodes root → leaf by y position
+    const pathNodes = pathIds
+        .map(id => model.find(n => n.id === id))
+        .filter(Boolean)
+        .sort((a, b) => a.y - b.y);
+
+    // Accumulate contributions per feature
+    const allFeatures = Object.keys(sample.features);
+    const contributions = {};
+    allFeatures.forEach(f => { contributions[f] = 0.001; }); // baseline tiny value
+
+    for (let i = 0; i < pathNodes.length - 1; i++) {
+        const node = pathNodes[i];
+        if (!node.is_leaf) {
+            const parentProb = getNodeProb(node.id, model, probCache, classIndex);
+            const childProb = getNodeProb(pathNodes[i + 1].id, model, probCache, classIndex);
+            const delta = Math.abs(childProb - parentProb);
+            if (delta > 0) {
+                contributions[node.feature] = (contributions[node.feature] || 0) + delta;
+            }
+        }
+    }
+
+    // Sort by contribution descending
+    const sorted = Object.entries(contributions).sort((a, b) => b[1] - a[1]);
+    const maxVal = sorted[0][1];
+
+    // Update subtitle
+    const subtitle = document.getElementById('shapSubtitle');
+    if (subtitle) {
+        const sampleNum = currentConfig.sampleIndex + 1;
+        const criterionLabel = currentConfig.criterion.charAt(0).toUpperCase() + currentConfig.criterion.slice(1);
+        subtitle.textContent = `Sample ${sampleNum} · Depth ${currentConfig.depth} · ${criterionLabel}`;
+    }
+
+    // Render bar chart
+    const barsHTML = sorted.map(([feature, val]) => {
+        const label = FEATURE_DESCRIPTIONS[feature] || feature;
+        const barPct = maxVal > 0 ? ((val / maxVal) * 100).toFixed(1) : 0;
+        return `
+            <div class="shap-row">
+                <div class="shap-label" title="${label}">${label}</div>
+                <div class="shap-bar-wrap">
+                    <div class="shap-bar-track">
+                        <div class="shap-bar" style="width: ${barPct}%"></div>
+                    </div>
+                    <span class="shap-val">${val.toFixed(3)}</span>
+                </div>
+            </div>`;
+    }).join('');
+
+    container.innerHTML = `<div class="shap-chart">${barsHTML}</div>`;
+}
+
 function fitTreeToScreen() {
     if (!TREE_DATA) return;
-    
+
     const nodes = TREE_DATA.models[currentConfig.depth][currentConfig.criterion];
     
     let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
@@ -2032,8 +2243,8 @@ function handleWheel(e) {
     const scaleFactor = 1.1;
     const direction = e.deltaY > 0 ? -1 : 1;
     const newScale = direction > 0
-        ? Math.min(animState.camera.scale * scaleFactor, 4)
-        : Math.max(animState.camera.scale / scaleFactor, 0.05);
+        ? Math.min(animState.camera.scale * scaleFactor, 2.5)
+        : Math.max(animState.camera.scale / scaleFactor, 0.15);
     
     const animationArea = document.getElementById('animationArea');
     if (!animationArea) return;

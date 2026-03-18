@@ -1,4 +1,4 @@
-#### Part 1: Binary Classification
+## Part 1: Binary Classification
 
 The objective of this experiment is to classify applicants into two categories—loan approved and loan not approved—based on a set of applicant attributes. The input to the model consists of multiple independent variables representing financial and personal features of the applicants, while the output is a binary dependent variable indicating whether the loan is approved or not.
 
@@ -28,7 +28,7 @@ To visualize the model's performance, a confusion matrix heatmap is plotted.
 
 ---
 
-#### Part 2: Multi-class Classification
+## Part 2: Multi-class Classification
 
 The objective of this experiment is to classify individuals into different obesity categories, such as normal weight, overweight, or various obesity levels, based on a set of personal and lifestyle attributes. The input to the model consists of multiple independent variables, including demographic information (e.g., age, gender, height, weight), dietary habits, physical activity, and other behavioral factors, while the output is a categorical dependent variable indicating the obesity level of each individual.
 
