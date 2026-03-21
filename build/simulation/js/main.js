@@ -1,4 +1,4 @@
-// ==========================================
+﻿// ==========================================
 // TRAINING STEPS DATA WITH ALL VISUALIZATIONS
 // ==========================================
 
@@ -8,6 +8,7 @@ const STEPS_MULTICLASS = [
         blocks: [{
             code: `# Import necessary libraries
 import pandas as pd
+import opendatasets as od
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -23,8 +24,13 @@ print("Libraries imported successfully!")`,
         title: "Loading Data",
         blocks: [
             {
-                code: `# Load the dataset
-data = pd.read_csv('ObesityDataSet_raw_and_data_sinthetic.csv')
+                code: `# Download and load the dataset
+dataset_url = "https://www.kaggle.com/datasets/fatemehmehrparvar/obesity-levels"
+
+# download dataset
+od.download(dataset_url)
+
+data = pd.read_csv("obesity-levels/ObesityDataSet_raw_and_data_sinthetic.csv")
 print("Dataset loaded successfully")`,
                 output: `<div class="output-text">Dataset loaded successfully</div>`
             },
@@ -35,10 +41,10 @@ print(data.shape)`,
                 output: `<div class="output-text">Data Shape:<br>(2111, 17)</div>`
             },
             {
-                code: `# Display first 5 rows of the dataset
-print("First 5 rows of the dataset:")
-data.head()`,
-                output: `<div class="output-text">First 5 rows of the dataset:</div>
+                code: `# Display first 10 rows of the dataset
+print("First 10 Rows of Dataset:\\n")
+data.head(10)`,
+                output: `<div class="output-text">First 10 Rows of Dataset:</div>
 <div class="table-wrapper">
 <table class="data-table">
   <thead>
@@ -106,7 +112,7 @@ print(list(data.columns))
 
 target_column = "NObeyesdad"
 print("Target Column:", target_column)`,
-                output: `<div class="output-text">First 10 Rows of Dataset displayed successfully.<br><br>Column Names in Dataset:<br>['Gender', 'Age', 'Height', 'Weight', 'family_history_with_overweight', 'FAVC', 'FCVC', 'NCP', 'CAEC', 'SMOKE', 'CH2O', 'SCC', 'FAF', 'TUE', 'CALC', 'MTRANS', 'NObeyesdad']<br><br>Target Column: NObeyesdad</div>`
+                output: `<div class="output-text">First 10 Rows of Dataset:<br><br>Column Names in Dataset:<br>['Gender', 'Age', 'Height', 'Weight', 'family_history_with_overweight', 'FAVC', 'FCVC', 'NCP', 'CAEC', 'SMOKE', 'CH2O', 'SCC', 'FAF', 'TUE', 'CALC', 'MTRANS', 'NObeyesdad']<br><br>Target Column: NObeyesdad</div>`
             },
             {
                 code: `# ==============================
@@ -421,6 +427,8 @@ const STEPS_BINARY = [
         blocks: [{
             code: `# Import necessary libraries
 import pandas as pd
+import opendatasets as od
+import streamlit as st
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier, plot_tree
 from sklearn.metrics import confusion_matrix, classification_report, accuracy_score
@@ -436,8 +444,12 @@ print("Libraries imported successfully!")`,
         title: "Initial Data Loading & Exploration",
         blocks: [
             {
-                code: `# Load the dataset
-data = pd.read_csv("loan_approval_dataset.csv")
+                code: `# Download and load the dataset
+dataset_url = "https://www.kaggle.com/datasets/architsharma01/loan-approval-prediction-dataset"
+
+od.download(dataset_url)
+
+data = pd.read_csv("loan-approval-prediction-dataset/loan_approval_dataset.csv")
 print("Dataset loaded successfully")`,
                 output: `<div class="output-text">Dataset loaded successfully</div>`
             },
@@ -486,7 +498,7 @@ print("Number of Records:", num_records)
 print("Number of Features:", num_features)
 print("Target Variable:", target_variable)
 print("Prediction Objective: Predict whether a loan application will be Approved or Rejected.")`,
-                output: `<div class="output-text">===== DATASET DETAILS =====<br><br>Number of Records: 4269<br>Number of Features: 13<br>Target Variable: loan_status<br>Prediction Objective: Predict whether a loan application will be Approved or Rejected.</div>`
+                output: `<div class="output-text">Number of Records: 4269<br>Number of Features: 13<br>Target Variable: loan_status<br>Prediction Objective: Predict whether a loan application will be Approved or Rejected.</div>`
             },
             {
                 code: `# ==============================
@@ -503,7 +515,7 @@ print("\\nTarget Column ->", target)
 
 print("scrollable table")
 display(data)`,
-                output: `<div class="output-text">Dataset preview (top 10 rows) displayed.<br><br>Column Names printed in vertical format.<br><br>Target Column -> loan_status<br><br>Scrollable full dataset view displayed.</div>`
+                output: `<div class="output-text">Column Names:<br>loan_id<br>no_of_dependents<br>education<br>self_employed<br>income_annum<br>loan_amount<br>loan_term<br>cibil_score<br>residential_assets_value<br>commercial_assets_value<br>luxury_assets_value<br>bank_asset_value<br>loan_status<br><br>Target Column -> loan_status<br><br>Scrollable full dataset view displayed.</div>`
             },
             {
                 code: `# FEATURE SUMMARY PANEL
@@ -513,12 +525,12 @@ categorical_features = data.select_dtypes(include=['object']).columns
 print("===== FEATURE SUMMARY PANEL =====\\n")
 print("Numerical Features:")
 for col in numerical_features:
-    print("•", col)
+    print("-", col)
 
 print("\\nCategorical Features:")
 for col in categorical_features:
-    print("•", col)`,
-                output: `<div class="output-text">===== FEATURE SUMMARY PANEL =====<br><br>Numerical Features:<br>• loan_id<br>• no_of_dependents<br>• income_annum<br>• loan_amount<br>• loan_term<br>• cibil_score<br>• residential_assets_value<br>• commercial_assets_value<br>• luxury_assets_value<br>• bank_asset_value<br><br>Categorical Features:<br>• education<br>• self_employed<br>• loan_status</div>`
+    print("-", col)`,
+                output: `<div class="output-text">Numerical Features:<br>- loan_id<br>- no_of_dependents<br>- income_annum<br>- loan_amount<br>- loan_term<br>- cibil_score<br>- residential_assets_value<br>- commercial_assets_value<br>- luxury_assets_value<br>- bank_asset_value<br><br>Categorical Features:<br>- education<br>- self_employed<br>- loan_status</div>`
             },
             {
                 code: `# FEATURE OF INTEREST PANEL
@@ -1191,32 +1203,26 @@ function renderSidebar() {
         const status = EXPERIMENT_STATE.stepsStatus[index];
         const btn = document.createElement('button');
         btn.classList.add('step-btn');
-        
-        // Label Logic
-        let label = `${index + 1}. ${step.title}`;
-        if (status.completed) label = `✓ ${step.title}`;
-        btn.innerText = label;
 
-        // Styling & Interaction Logic
+        let label = `${index + 1}. ${step.title}`;
+        if (status.completed) label = `\u2713 ${step.title}`;
+        btn.textContent = label;
+
         if (status.unlocked) {
             if (status.completed) {
-                // Completed -> Green (from CSS)
                 btn.classList.add('completed');
             } else if (status.partial) {
-                // In Progress -> Yellow/Orange (from CSS)
                 btn.classList.add('in-progress');
             }
             btn.disabled = false;
             btn.style.cursor = 'pointer';
 
-             // Active Styling
             if (index === EXPERIMENT_STATE.stepIndex) {
                 btn.classList.add('active');
             }
 
             btn.onclick = () => loadStep(index);
         } else {
-             // Locked -> Grey (from CSS)
             btn.classList.add('disabled');
             btn.disabled = true;
         }
@@ -1281,6 +1287,56 @@ function checkAllStepsCompleted() {
     return EXPERIMENT_STATE.stepsStatus.every(status => status.completed);
 }
 
+function normalizeHeaderText(text) {
+    return (text || "")
+        .toLowerCase()
+        .replace(/&[a-z]+;/g, " ")
+        .replace(/[^a-z0-9]+/g, " ")
+        .trim();
+}
+
+function extractPrintedLiteral(line) {
+    const trimmed = (line || "").trim();
+    const match = trimmed.match(/^print\(\s*[fFrRuUbB]*["']([\s\S]*?)["']\s*\)\s*$/);
+    if (!match) return "";
+
+    return match[1]
+        .replace(/\\n/g, " ")
+        .replace(/\\t/g, " ")
+        .replace(/[-_=*#]+/g, " ")
+        .trim();
+}
+
+function sanitizeDisplayedCode(code, headerComment = "") {
+    if (!code) return "";
+
+    const isSeparatorComment = (line) => /^#\s*[=*_ -]{3,}\s*$/.test((line || "").trim());
+    const cleaned = code.split('\n').filter(line => !isSeparatorComment(line));
+
+    while (cleaned.length && !cleaned[0].trim()) cleaned.shift();
+
+    const normalizedHeader = normalizeHeaderText(headerComment);
+    if (normalizedHeader) {
+        const firstLine = cleaned[0] ? cleaned[0].trim() : "";
+        if (firstLine.startsWith('#')) {
+            const commentText = normalizeHeaderText(firstLine.replace(/^#\s*/, ''));
+            if (commentText === normalizedHeader) {
+                cleaned.shift();
+            }
+        }
+
+        while (cleaned.length && !cleaned[0].trim()) cleaned.shift();
+
+        const printHeading = cleaned[0] ? extractPrintedLiteral(cleaned[0]) : "";
+        if (printHeading && normalizeHeaderText(printHeading) === normalizedHeader) {
+            cleaned.shift();
+        }
+    }
+
+    while (cleaned.length && !cleaned[0].trim()) cleaned.shift();
+    return cleaned.join('\n').trim();
+}
+
 function loadStep(index) {
     EXPERIMENT_STATE.stepIndex = index;
     // IMPORTANT: Do NOT reset subStepIndex if the step is already completed.
@@ -1326,7 +1382,6 @@ function updateUI() {
 
     // Use comment field like RF, fallback to extracting from code
     let headerComment = "";
-    let displayCode = block.code || "";
     
     if (block && block.comment) {
         // Preferred: Use comment field
@@ -1335,14 +1390,23 @@ function updateUI() {
         // Fallback: Use step-level comment
         headerComment = step.comment;
     } else if (block && block.code) {
-        // Last resort: Extract from code (legacy support)
-        const commentMatch = block.code.match(/#\s*([^<\n\r]*)/);
-        if (commentMatch) {
-            headerComment = commentMatch[1].trim();
-            // Strip ALL comment lines from code display
-            displayCode = block.code.split('\n').filter(line => !line.trim().startsWith('#')).join('\n').trim();
+        // Last resort: Extract from code while ignoring separator comments.
+        const lines = block.code.split('\n');
+        const isSeparatorComment = (line) => /^#\s*[=*_ -]{3,}\s*$/.test(line.trim());
+        const isCommentLine = (line) => line.trim().startsWith('#');
+
+        const firstMeaningfulComment = lines.find(line => {
+            const trimmed = line.trim();
+            return isCommentLine(trimmed) && !isSeparatorComment(trimmed) && trimmed.replace(/^#\s*/, '').trim();
+        });
+
+        if (firstMeaningfulComment) {
+            headerComment = firstMeaningfulComment.replace(/^#\s*/, '').trim();
         }
+
     }
+
+    const displayCode = sanitizeDisplayedCode(block.code || "", headerComment);
 
     if (codeHeaderBar) {
         if (headerComment) {
@@ -1521,9 +1585,9 @@ function showCompletionMessage() {
         </style>
         <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: 20px; width: 100%; padding: 40px 0;">
             <div style="margin-bottom: 10px;">
-                <span class="clapping-hands">👏</span>
-                <span class="clapping-hands" style="animation-delay: 0.15s;">👏</span>
-                <span class="clapping-hands" style="animation-delay: 0.3s;">👏</span>
+                <span class="clapping-hands">ðŸ‘</span>
+                <span class="clapping-hands" style="animation-delay: 0.15s;">ðŸ‘</span>
+                <span class="clapping-hands" style="animation-delay: 0.3s;">ðŸ‘</span>
             </div>
             <div>
                 <h2 style="color: #3d8b8b; font-family: 'Courier New', monospace; font-size: 2rem; font-weight: bold; margin-bottom: 10px;">
@@ -1612,15 +1676,15 @@ async function loadTreeData() {
             console.log("TREE_DATA_BINARY exists?", typeof TREE_DATA_BINARY !== 'undefined');
             if (typeof TREE_DATA_BINARY !== 'undefined') {
                 TREE_DATA = TREE_DATA_BINARY;
-                console.log("✅ Binary data loaded. Inputs:", TREE_DATA.inputs.length);
+                console.log("âœ… Binary data loaded. Inputs:", TREE_DATA.inputs.length);
                 console.log("Sample features:", Object.keys(TREE_DATA.inputs[0].features));
             } else {
-                console.error("❌ TREE_DATA_BINARY is undefined!");
+                console.error("âŒ TREE_DATA_BINARY is undefined!");
             }
         } else {
             console.log("Loading TREE_DATA_MULTICLASS...");
             TREE_DATA = TREE_DATA_MULTICLASS;
-            console.log("✅ Multiclass data loaded. Inputs:", TREE_DATA.inputs.length);
+            console.log("âœ… Multiclass data loaded. Inputs:", TREE_DATA.inputs.length);
         }
         
         if (!TREE_DATA) {
@@ -2116,7 +2180,7 @@ function renderSHAPChart(sample, model, pathIds) {
     // Build probability cache
     const probCache = new Map();
 
-    // Sort path nodes root → leaf by y position
+    // Sort path nodes root â†’ leaf by y position
     const pathNodes = pathIds
         .map(id => model.find(n => n.id === id))
         .filter(Boolean)
@@ -2148,7 +2212,7 @@ function renderSHAPChart(sample, model, pathIds) {
     if (subtitle) {
         const sampleNum = currentConfig.sampleIndex + 1;
         const criterionLabel = currentConfig.criterion.charAt(0).toUpperCase() + currentConfig.criterion.slice(1);
-        subtitle.textContent = `Sample ${sampleNum} · Depth ${currentConfig.depth} · ${criterionLabel}`;
+        subtitle.textContent = `Sample ${sampleNum} Â· Depth ${currentConfig.depth} Â· ${criterionLabel}`;
     }
 
     // Render bar chart
@@ -2283,3 +2347,4 @@ function exitAnimation() {
     document.getElementById('animationSection').style.display = 'none';
     document.getElementById('trainingSection').style.display = 'flex';
 }
+

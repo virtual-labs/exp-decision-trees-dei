@@ -1,55 +1,75 @@
 ## Part 1: Binary Classification
 
-The objective of this experiment is to classify applicants into two categories—loan approved and loan not approved—based on a set of applicant attributes. The input to the model consists of multiple independent variables representing financial and personal features of the applicants, while the output is a binary dependent variable indicating whether the loan is approved or not.
+The objective of this part is to classify loan applications into two categories, approved and rejected, using a Decision Tree classifier. The model learns feature-based decision rules from applicant information such as income, loan amount, employment status, credit score, and asset values, and its predictive performance is evaluated using standard classification measures.
 
-**Step 1:** Import required libraries: pandas, matplotlib, Seaborn.
+**Step 1:** Import the required libraries such as NumPy, Pandas, Matplotlib, Seaborn, and the relevant modules from `sklearn`.
 
-**Step 2:** Load 'Loan_dataset.csv'. The Loan Approval Prediction dataset contains 4,269 rows and 13 columns. It includes applicant details such as income, loan amount, credit history, and employment status, with the target column indicating whether the loan is approved or not.
+**Step 2:** Load the `Loan_dataset.csv` dataset. The dataset contains 4,269 records and 13 columns, including applicant details and the binary target variable `loan_status`.
 
-**Step 3:** Perform data analysis using head(), tail(), info(), describe(), and isnull().sum().
+**Step 3:** Perform exploratory data analysis using `head()`, `info()`, `describe()`, and `isnull().sum()` to understand the structure, data types, and quality of the dataset.
 
-**Step 4:** Define Features of X and Y:
-- **Features X:** loan_id, no_of_dependents, education, self_employed, income_annum, loan_amount, loan_term, cibil_score, residential_assets_value, commercial_assets_value, luxury_assets_value, bank_asset_value
-- **Y:** loan_status
+**Step 4:** Check the class distribution of the target variable using `value_counts()` to understand the balance between approved and rejected loan applications.
 
-**Step 5:** Split the Dataset into 80% Training Set and 20% Testing Sets.
+**Step 5:** Define the feature matrix `X` and target variable `y`.
 
-**Step 6:** Train the Decision Tree Classifier:
-In this step, the Decision Tree Classifier is initialized and configured by setting important parameters such as the splitting criteria and the maximum depth (max_depth) of the tree. After defining these parameters, the classifier is trained using the training dataset, allowing it to learn decision rules from the data and build a tree structure for accurate prediction.
+- **Features (X):** `loan_id`, `no_of_dependents`, `education`, `self_employed`, `income_annum`, `loan_amount`, `loan_term`, `cibil_score`, `residential_assets_value`, `commercial_assets_value`, `luxury_assets_value`, `bank_asset_value`
+- **Target (y):** `loan_status`
 
-**Step 7:** Make Predictions on Test Data:
-Using the trained Decision Tree model, predictions are made on the test dataset by providing its feature values as input. These predicted outcomes are then compared with the actual values to evaluate the performance of the model.
+**Step 6:** Encode categorical variables using an appropriate encoding method such as label encoding or one-hot encoding so that the data can be used by the Decision Tree model.
 
-**Step 8:** Evaluate Model Performance:
-The Decision Tree model is evaluated using the accuracy score to measure overall correctness, the confusion matrix to display true and false predictions, and the classification report to summarize precision, recall, and F1-score for each class. These metrics together help assess the model's performance.
+**Step 7:** Split the dataset into 80% training data and 20% testing data using `train_test_split()` with a fixed `random_state` for reproducibility.
 
-**Step 9:** Plot:
-To visualize the model's performance, a confusion matrix heatmap is plotted.
+**Step 8:** Initialize a `DecisionTreeClassifier` by setting suitable hyperparameters such as the splitting criterion (`gini` or `entropy`) and `max_depth`.
+
+**Step 9:** Train the Decision Tree classifier using the training dataset.
+
+**Step 10:** Generate predictions on the test dataset using the trained model.
+
+**Step 11:** Evaluate the model using Accuracy, Precision, Recall, and F1-Score.
+
+**Step 12:** Display the classification report to summarize per-class precision, recall, F1-score, and support.
+
+**Step 13:** Compute the confusion matrix to compare predicted and actual outcomes.
+
+**Step 14:** Plot a confusion matrix heatmap to visualize correct and incorrect classifications clearly.
+
+**Step 15:** Interpret the learned decision rules and discuss how the selected features influence the binary classification outcome.
 
 ---
 
-## Part 2: Multi-class Classification
+## Part 2: Multi-Class Classification
 
-The objective of this experiment is to classify individuals into different obesity categories, such as normal weight, overweight, or various obesity levels, based on a set of personal and lifestyle attributes. The input to the model consists of multiple independent variables, including demographic information (e.g., age, gender, height, weight), dietary habits, physical activity, and other behavioral factors, while the output is a categorical dependent variable indicating the obesity level of each individual.
+The objective of this part is to classify individuals into different obesity categories using a Decision Tree classifier. The input features include demographic, dietary, and lifestyle attributes, while the target variable represents the obesity level of each individual. This part demonstrates how Decision Trees handle multi-class classification problems and how their predictive performance can be assessed.
 
-**Step 1:** Import required libraries: pandas, matplotlib, seaborn.
+**Step 1:** Import the required libraries such as NumPy, Pandas, Matplotlib, Seaborn, and the necessary `sklearn` modules.
 
-**Step 2:** Load 'Obesity_Dataset.csv'. The obesity dataset contains 2,111 records and 17 columns, representing individuals with various lifestyle, dietary, and physical attributes. It is used to classify obesity levels, where multiple personal and behavioral features act as inputs and the obesity category is the target variable.
+**Step 2:** Load the `Obesity_Dataset.csv` dataset. The dataset contains 2,111 records and 17 columns, including multiple personal, behavioral, and physical attributes along with the obesity category label.
 
-**Step 3:** Define Feature X and Y:
-- **Features X (Independent Variables):** Gender, Age, Height, Weight, family_history_with_overweight, FAVC, FCVC, NCP, CAEC, SMOKE, CH2O, SCC, FAF, TUE, CALC, MTRANS
-- **Target Variable Y:** NObeyesdad (represents the obesity category/class of an individual)
+**Step 3:** Perform basic exploratory data analysis using `head()`, `info()`, `describe()`, and `isnull().sum()`.
 
-**Step 4:** Split the Dataset into 80% Training Set and 20% Testing Sets.
+**Step 4:** Check the class distribution of the target variable using `value_counts()` to understand how the obesity categories are represented in the dataset.
 
-**Step 5:** Train the Decision Tree Classifier:
-In this step, the Decision Tree Classifier is initialized and configured by setting important parameters such as the splitting criteria and the maximum depth (max_depth) of the tree. After defining these parameters, the classifier is trained using the training dataset, allowing it to learn decision rules from the data and build a tree structure for accurate prediction.
+**Step 5:** Define the feature matrix `X` and target variable `y`.
 
-**Step 6:** Make Predictions on Test Data:
-Using the trained Decision Tree model, predictions are made on the test dataset by providing its feature values as input. These predicted outcomes are then compared with the actual values to evaluate the performance of the model.
+- **Features (X):** `Gender`, `Age`, `Height`, `Weight`, `family_history_with_overweight`, `FAVC`, `FCVC`, `NCP`, `CAEC`, `SMOKE`, `CH2O`, `SCC`, `FAF`, `TUE`, `CALC`, `MTRANS`
+- **Target (y):** `NObeyesdad`
 
-**Step 7:** Evaluate Model Performance:
-The Decision Tree model is evaluated using the accuracy score to measure overall correctness, the confusion matrix to display true and false predictions, and the classification report to summarize precision, recall, and F1-score for each class. These metrics together help assess the model's performance.
+**Step 6:** Encode categorical variables appropriately so that the dataset can be processed by the Decision Tree algorithm.
 
-**Step 8:** Plot:
-To visualize the model's performance, a confusion matrix heatmap is plotted.
+**Step 7:** Split the dataset into 80% training data and 20% testing data using `train_test_split()` with stratification and a fixed `random_state` for reproducibility.
+
+**Step 8:** Initialize the `DecisionTreeClassifier` by selecting the splitting criterion and other relevant parameters such as `max_depth`, `min_samples_split`, or `min_samples_leaf` if required.
+
+**Step 9:** Train the Decision Tree model using the training dataset.
+
+**Step 10:** Predict the obesity classes for the testing dataset.
+
+**Step 11:** Evaluate the model using Accuracy, Precision (macro), Recall (macro), and F1-Score (macro).
+
+**Step 12:** Generate the classification report to examine the model performance for each obesity category.
+
+**Step 13:** Compute the confusion matrix to analyze correct and incorrect classifications across all classes.
+
+**Step 14:** Plot a confusion matrix heatmap for a visual interpretation of the multi-class results.
+
+**Step 15:** Discuss how Decision Tree depth, splitting criteria, and data characteristics influence multi-class classification performance.
