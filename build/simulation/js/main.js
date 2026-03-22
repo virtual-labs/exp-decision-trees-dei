@@ -58,6 +58,11 @@ data.head(10)`,
     <tr><th>2</th><td>Male</td><td>23.0</td><td>1.80</td><td>77.0</td><td>yes</td><td>no</td><td>2.0</td><td>3.0</td><td>Sometimes</td><td>no</td><td>2.0</td><td>no</td><td>2.0</td><td>1.0</td><td>Frequently</td><td>Public_Transportation</td><td>Normal_Weight</td></tr>
     <tr><th>3</th><td>Male</td><td>27.0</td><td>1.80</td><td>87.0</td><td>no</td><td>no</td><td>3.0</td><td>3.0</td><td>Sometimes</td><td>no</td><td>2.0</td><td>no</td><td>2.0</td><td>0.0</td><td>Frequently</td><td>Walking</td><td>Overweight_Level_I</td></tr>
     <tr><th>4</th><td>Male</td><td>22.0</td><td>1.78</td><td>89.8</td><td>no</td><td>no</td><td>2.0</td><td>1.0</td><td>Sometimes</td><td>no</td><td>2.0</td><td>no</td><td>0.0</td><td>0.0</td><td>Sometimes</td><td>Public_Transportation</td><td>Overweight_Level_II</td></tr>
+    <tr><th>5</th><td>Male</td><td>29.0</td><td>1.62</td><td>53.0</td><td>no</td><td>yes</td><td>2.0</td><td>3.0</td><td>Sometimes</td><td>no</td><td>2.0</td><td>no</td><td>0.0</td><td>0.0</td><td>Sometimes</td><td>Automobile</td><td>Normal_Weight</td></tr>
+    <tr><th>6</th><td>Female</td><td>23.0</td><td>1.50</td><td>55.0</td><td>yes</td><td>yes</td><td>3.0</td><td>3.0</td><td>Sometimes</td><td>no</td><td>2.0</td><td>no</td><td>1.0</td><td>0.0</td><td>Sometimes</td><td>Motorbike</td><td>Normal_Weight</td></tr>
+    <tr><th>7</th><td>Male</td><td>22.0</td><td>1.64</td><td>53.0</td><td>no</td><td>no</td><td>2.0</td><td>3.0</td><td>Sometimes</td><td>no</td><td>2.0</td><td>no</td><td>3.0</td><td>0.0</td><td>Sometimes</td><td>Public_Transportation</td><td>Normal_Weight</td></tr>
+    <tr><th>8</th><td>Male</td><td>24.0</td><td>1.78</td><td>64.0</td><td>yes</td><td>yes</td><td>3.0</td><td>3.0</td><td>Sometimes</td><td>no</td><td>2.0</td><td>no</td><td>1.0</td><td>1.0</td><td>Sometimes</td><td>Public_Transportation</td><td>Normal_Weight</td></tr>
+    <tr><th>9</th><td>Male</td><td>22.0</td><td>1.72</td><td>68.0</td><td>yes</td><td>yes</td><td>2.0</td><td>3.0</td><td>Sometimes</td><td>no</td><td>2.0</td><td>no</td><td>1.0</td><td>1.0</td><td>no</td><td>Public_Transportation</td><td>Normal_Weight</td></tr>
   </tbody>
 </table>
 </div>`
@@ -100,15 +105,12 @@ print("Prediction Objective: Predict the obesity level of a person based on life
             },
             {
                 code: `# Dataset preview section
-print("First 10 Rows of Dataset:\\n")
-data.head(10)
-
 print("Column Names in Dataset:\\n")
 print(list(data.columns))
 
 target_column = "NObeyesdad"
 print("Target Column:", target_column)`,
-                output: `<div class="output-text">First 10 Rows of Dataset:<br><br>Column Names in Dataset:<br>['Gender', 'Age', 'Height', 'Weight', 'family_history_with_overweight', 'FAVC', 'FCVC', 'NCP', 'CAEC', 'SMOKE', 'CH2O', 'SCC', 'FAF', 'TUE', 'CALC', 'MTRANS', 'NObeyesdad']<br><br>Target Column: NObeyesdad</div>`
+                output: `<div class="output-text">Column Names in Dataset:<br>['Gender', 'Age', 'Height', 'Weight', 'family_history_with_overweight', 'FAVC', 'FCVC', 'NCP', 'CAEC', 'SMOKE', 'CH2O', 'SCC', 'FAF', 'TUE', 'CALC', 'MTRANS', 'NObeyesdad']<br><br>Target Column: NObeyesdad</div>`
             },
             {
                 code: `# Feature summary panel
@@ -486,18 +488,13 @@ print("Prediction Objective: Predict whether a loan application will be Approved
             },
             {
                 code: `# Dataset preview section
-display(data.head(10))
-
 print("Column Names:")
 for col in data.columns:
     print(col)
 
 target = "loan_status"
-print("\\nTarget Column ->", target)
-
-print("scrollable table")
-display(data)`,
-                output: `<div class="output-text">Column Names:<br>loan_id<br>no_of_dependents<br>education<br>self_employed<br>income_annum<br>loan_amount<br>loan_term<br>cibil_score<br>residential_assets_value<br>commercial_assets_value<br>luxury_assets_value<br>bank_asset_value<br>loan_status<br><br>Target Column -> loan_status<br><br>Scrollable full dataset view displayed.</div>`
+print("\\nTarget Column ->", target)`,
+                output: `<div class="output-text">Column Names:<br>loan_id<br>no_of_dependents<br>education<br>self_employed<br>income_annum<br>loan_amount<br>loan_term<br>cibil_score<br>residential_assets_value<br>commercial_assets_value<br>luxury_assets_value<br>bank_asset_value<br>loan_status<br><br>Target Column -> loan_status</div>`
             },
             {
                 code: `# Feature summary panel
