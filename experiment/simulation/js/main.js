@@ -90,9 +90,7 @@ data.tail()`,
         title: "Preprocessing",
         blocks: [
             {
-                code: `# ==============================
-# DATASET DETAILS
-# ==============================
+                code: `# Dataset details
 print("1. Display Details of the Dataset\\n")
 print("Number of Records:", data.shape[0])
 print("Number of Features:", data.shape[1]-1)
@@ -101,9 +99,7 @@ print("Prediction Objective: Predict the obesity level of a person based on life
                 output: `<div class="output-text">1. Display Details of the Dataset<br><br>Number of Records: 2111<br>Number of Features: 16<br>Target Variable: NObeyesdad<br>Prediction Objective: Predict the obesity level of a person based on lifestyle, eating habits, and physical characteristics.</div>`
             },
             {
-                code: `# ==============================
-# DATASET PREVIEW SECTION
-# ==============================
+                code: `# Dataset preview section
 print("First 10 Rows of Dataset:\\n")
 data.head(10)
 
@@ -115,9 +111,7 @@ print("Target Column:", target_column)`,
                 output: `<div class="output-text">First 10 Rows of Dataset:<br><br>Column Names in Dataset:<br>['Gender', 'Age', 'Height', 'Weight', 'family_history_with_overweight', 'FAVC', 'FCVC', 'NCP', 'CAEC', 'SMOKE', 'CH2O', 'SCC', 'FAF', 'TUE', 'CALC', 'MTRANS', 'NObeyesdad']<br><br>Target Column: NObeyesdad</div>`
             },
             {
-                code: `# ==============================
-# FEATURE SUMMARY PANEL
-# ==============================
+                code: `# Feature summary panel
 numerical_features = ["Age","Height","Weight","FCVC","NCP","CH2O","FAF","TUE"]
 categorical_features = ["Gender","family_history_with_overweight","FAVC","CAEC","SMOKE","SCC","CALC","MTRANS"]
 
@@ -134,9 +128,7 @@ print("Feature descriptions generated for all input variables except target.")`,
                 output: `<div class="output-success">Feature of Interest Panel generated successfully with type/range/value context and descriptions for all predictor variables.</div>`
             },
             {
-                code: `# ==============================
-# STATISTICAL SUMMARY
-# ==============================
+                code: `# Statistical summary
 print("Statistical summary of the dataset:")
 data.describe()`,
                 output: `<div class="output-header">Statistical summary of the dataset:</div>
@@ -254,18 +246,14 @@ data.describe()`,
         title: "Data Preprocessing",
         blocks: [
             {
-                code: `# ==============================
-# INITIALIZE LABEL ENCODER
-# ==============================
+                code: `# Initialize label encoder
 le = LabelEncoder()
 target_names = []
 print("LabelEncoder initialized")`,
                 output: `<div class="output-text">LabelEncoder initialized</div>`
             },
             {
-                code: `# ==============================
-# ENCODE CATEGORICAL COLUMNS
-# ==============================
+                code: `# Encode categorical columns
 for col in data.columns:
     if data[col].dtype == 'object':
         data[col] = le.fit_transform(data[col])
@@ -275,9 +263,7 @@ print("Categorical variables encoded")`,
                 output: `<div class="output-success">Categorical variables encoded</div>`
             },
             {
-                code: `# ==============================
-# TRAIN-TEST SPLIT
-# ==============================
+                code: `# Train-test split
 X = data.drop('NObeyesdad', axis=1)
 y = data['NObeyesdad']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
@@ -486,14 +472,12 @@ data.tail()`,
         title: "Data Preprocessing & Information",
         blocks: [
             {
-                code: `# ==============================
-# DATASET DETAILS
-# ==============================
+                code: `# Dataset details
 num_records = data.shape[0]
 num_features = data.shape[1]
 target_variable = "loan_status"
 
-print("===== DATASET DETAILS =====\\n")
+print("Dataset Details:\\n")
 print("Number of Records:", num_records)
 print("Number of Features:", num_features)
 print("Target Variable:", target_variable)
@@ -501,9 +485,7 @@ print("Prediction Objective: Predict whether a loan application will be Approved
                 output: `<div class="output-text">Number of Records: 4269<br>Number of Features: 13<br>Target Variable: loan_status<br>Prediction Objective: Predict whether a loan application will be Approved or Rejected.</div>`
             },
             {
-                code: `# ==============================
-# DATASET PREVIEW SECTION
-# ==============================
+                code: `# Dataset preview section
 display(data.head(10))
 
 print("Column Names:")
@@ -518,11 +500,11 @@ display(data)`,
                 output: `<div class="output-text">Column Names:<br>loan_id<br>no_of_dependents<br>education<br>self_employed<br>income_annum<br>loan_amount<br>loan_term<br>cibil_score<br>residential_assets_value<br>commercial_assets_value<br>luxury_assets_value<br>bank_asset_value<br>loan_status<br><br>Target Column -> loan_status<br><br>Scrollable full dataset view displayed.</div>`
             },
             {
-                code: `# FEATURE SUMMARY PANEL
+                code: `# Feature summary panel
 numerical_features = data.select_dtypes(include=['int64','float64']).columns
 categorical_features = data.select_dtypes(include=['object']).columns
 
-print("===== FEATURE SUMMARY PANEL =====\\n")
+print("Feature Summary:\\n")
 print("Numerical Features:")
 for col in numerical_features:
     print("-", col)
@@ -551,9 +533,7 @@ data.head()`,
                 output: `<div class="output-text">Target column loan_status encoded successfully</div><div class="table-wrapper"><table class="data-table"><thead><tr style="text-align: right;"><th></th><th>loan_id</th><th>no_of_dependents</th><th>education</th><th>self_employed</th><th>income_annum</th><th>loan_amount</th><th>loan_term</th><th>cibil_score</th><th>residential_assets_value</th><th>commercial_assets_value</th><th>luxury_assets_value</th><th>bank_asset_value</th><th>loan_status</th></tr></thead><tbody><tr><th>0</th><td>1</td><td>2</td><td>Graduate</td><td>No</td><td>9600000</td><td>29900000</td><td>12</td><td>778</td><td>2400000</td><td>17600000</td><td>22700000</td><td>8000000</td><td>1</td></tr><tr><th>1</th><td>2</td><td>0</td><td>Not Graduate</td><td>Yes</td><td>4100000</td><td>12200000</td><td>8</td><td>417</td><td>2700000</td><td>2200000</td><td>8800000</td><td>3300000</td><td>0</td></tr><tr><th>2</th><td>3</td><td>3</td><td>Graduate</td><td>No</td><td>9100000</td><td>29700000</td><td>20</td><td>506</td><td>7100000</td><td>4500000</td><td>33300000</td><td>12800000</td><td>0</td></tr><tr><th>3</th><td>4</td><td>3</td><td>Graduate</td><td>No</td><td>8200000</td><td>30700000</td><td>8</td><td>467</td><td>18200000</td><td>3300000</td><td>23300000</td><td>7900000</td><td>0</td></tr><tr><th>4</th><td>5</td><td>5</td><td>Not Graduate</td><td>Yes</td><td>9800000</td><td>24200000</td><td>20</td><td>382</td><td>12400000</td><td>8200000</td><td>29400000</td><td>5000000</td><td>0</td></tr></tbody></table></div>`
             },
             {
-                code: `# ==============================
-# DATA INFORMATION
-# ==============================
+                code: `# Data information
 print("All Required Information Related To Data: ")
 data.info()`,
                 output: `<div class="output-text">All Required Information Related To Data:<br>&lt;class 'pandas.core.frame.DataFrame'&gt;<br>RangeIndex: 4269 entries, 0 to 4268<br>Data columns (total 13 columns):<br> #   Column                    Non-Null Count  Dtype <br>---  ------                    --------------  ----- <br> 0   loan_id                   4269 non-null   int64 <br> 1   no_of_dependents          4269 non-null   int64 <br> 2   education                 4269 non-null   object<br> 3   self_employed             4269 non-null   object<br> 4   income_annum              4269 non-null   int64 <br> 5   loan_amount               4269 non-null   int64 <br> 6   loan_term                 4269 non-null   int64 <br> 7   cibil_score               4269 non-null   int64 <br> 8   residential_assets_value  4269 non-null   int64 <br> 9   commercial_assets_value   4269 non-null   int64 <br> 10  luxury_assets_value       4269 non-null   int64 <br> 11  bank_asset_value          4269 non-null   int64 <br> 12  loan_status               4269 non-null   int64 <br>dtypes: int64(11), object(2)<br>memory usage: 433.7+ KB</div>`
@@ -1585,9 +1565,9 @@ function showCompletionMessage() {
         </style>
         <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: 20px; width: 100%; padding: 40px 0;">
             <div style="margin-bottom: 10px;">
-                <span class="clapping-hands">ðŸ‘</span>
-                <span class="clapping-hands" style="animation-delay: 0.15s;">ðŸ‘</span>
-                <span class="clapping-hands" style="animation-delay: 0.3s;">ðŸ‘</span>
+                <span class="clapping-hands">&#128079;</span>
+                <span class="clapping-hands" style="animation-delay: 0.15s;">&#128079;</span>
+                <span class="clapping-hands" style="animation-delay: 0.3s;">&#128079;</span>
             </div>
             <div>
                 <h2 style="color: #3d8b8b; font-family: 'Courier New', monospace; font-size: 2rem; font-weight: bold; margin-bottom: 10px;">
