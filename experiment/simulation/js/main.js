@@ -1565,9 +1565,9 @@ function showCompletionMessage() {
         </style>
         <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: 20px; width: 100%; padding: 40px 0;">
             <div style="margin-bottom: 10px;">
-                <span class="clapping-hands">ðŸ‘</span>
-                <span class="clapping-hands" style="animation-delay: 0.15s;">ðŸ‘</span>
-                <span class="clapping-hands" style="animation-delay: 0.3s;">ðŸ‘</span>
+                <span class="clapping-hands">&#128079;</span>
+                <span class="clapping-hands" style="animation-delay: 0.15s;">&#128079;</span>
+                <span class="clapping-hands" style="animation-delay: 0.3s;">&#128079;</span>
             </div>
             <div>
                 <h2 style="color: #3d8b8b; font-family: 'Courier New', monospace; font-size: 2rem; font-weight: bold; margin-bottom: 10px;">
