@@ -349,11 +349,11 @@
                         </div>
                     </div>
                 </div>
-          </div>          <div class="vlabs-page-content px-5 pb-4 flex-grow-1 markdown-body">
-            <div class="text-center fix-spacing">
-              <h2 id="decision-trees">Decision Trees</h2>
+          </div>            <div class="vlabs-page-content px-5 pb-4 flex-grow-1 markdown-body">
+              <div class="text-center fix-spacing">
+                <h2 id="decision-trees">Decision Trees</h2>
           
-            </div>
+              </div>
               <style>
           .formula-block {
               text-align: center;
@@ -415,7 +415,7 @@
           <p>Leaf nodes are also called terminal nodes. These nodes represent the final decision or prediction made by the model. In classification problems, they represent class labels, while in regression problems they represent numerical values.</p>
           <div class="figure-block">
           <img src="images/decision-trees.png" alt="Basic structure of a Decision Tree">
-          <p class="figure-caption">Figure: Basic structure of a decision tree</p>
+          <p class="figure-caption">Figure 1: Basic structure of a decision tree</p>
           </div>
           
           <h3 id="3-decision-tree-learning-concept">3. Decision Tree Learning Concept</h3>
@@ -428,25 +428,16 @@
           <h4 id="41-entropy">4.1 Entropy</h4>
           <p>Entropy measures the uncertainty or impurity in a dataset. If all the data points belong to the same class, the entropy value becomes zero, which means the data is perfectly pure. If the data contains a mixture of different classes, the entropy value becomes higher.</p>
           <p>Entropy is calculated using the following formula:</p>
-          <div class="formula-block">
-          <div class="equation-card">
-          <svg class="formula-svg" width="332" height="68" viewBox="0 0 332 68" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Entropy of S equals minus the summation of p sub i log base 2 of p sub i">
-            <rect width="332" height="68" fill="#f3f3f3"></rect>
-            <text x="10" y="42" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="22" font-style="italic" fill="#222">Entropy</text>
-            <text x="92" y="42" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="22" fill="#222">(</text>
-            <text x="100" y="42" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="22" font-style="italic" fill="#222">S</text>
-            <text x="113" y="42" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="22" fill="#222">) = -</text>
-            <text x="154" y="42" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="42" fill="#222">∑</text>
-            <text x="185" y="42" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="22" font-style="italic" fill="#222">p</text>
-            <text x="196" y="48" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="13" font-style="italic" fill="#222">i</text>
-            <text x="205" y="42" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="22" font-style="italic" fill="#222">log</text>
-            <text x="237" y="48" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="13" fill="#222">2</text>
-            <text x="245" y="42" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="22" fill="#222">(</text>
-            <text x="252" y="42" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="22" font-style="italic" fill="#222">p</text>
-            <text x="263" y="48" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="13" font-style="italic" fill="#222">i</text>
-            <text x="271" y="42" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="22" fill="#222">)</text>
-          </svg>
-          </div>
+          <div align="center" style="margin: 20px 0;">
+              <span style="font-family: 'Times New Roman', 'Georgia', serif; font-size: 1.25em;">
+                  Entropy(<i>S</i>) = −
+                  <div style="display: inline-block; vertical-align: middle; text-align: center; line-height: 1.1; margin: 0 5px;">
+                      <div style="font-size: 0.75em;"><i>c</i></div>
+                      <div style="font-size: 1.7em; margin: 3px 0;">∑</div>
+                      <div style="font-size: 0.75em;"><i>i</i>=1</div>
+                  </div>
+                  <i>p<sub>i</sub></i> log<sub>2</sub>(<i>p<sub>i</sub></i>)
+              </span>
           </div>
           
           <p>where <span class="math-inline">p_i</span> represents the probability of each class in the dataset.</p>
@@ -454,18 +445,16 @@
           <h4 id="42-gini-index">4.2 Gini Index</h4>
           <p>The Gini Index is another measure used to evaluate the quality of a split. It represents the probability of incorrectly classifying a randomly chosen element from the dataset.</p>
           <p>The formula for Gini Index is:</p>
-          <div class="formula-block">
-          <div class="equation-card">
-          <svg class="formula-svg" width="208" height="68" viewBox="0 0 208 68" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Gini equals one minus the summation of p sub i squared">
-            <rect width="208" height="68" fill="#f3f3f3"></rect>
-            <text x="12" y="42" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="22" font-style="italic" fill="#222">Gini</text>
-            <text x="60" y="42" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="22" fill="#222">= 1 -</text>
-            <text x="105" y="42" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="42" fill="#222">∑</text>
-            <text x="136" y="42" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="22" font-style="italic" fill="#222">p</text>
-            <text x="147" y="48" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="13" font-style="italic" fill="#222">i</text>
-            <text x="156" y="28" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="15" fill="#222">2</text>
-          </svg>
-          </div>
+          <div align="center" style="margin: 20px 0;">
+              <span style="font-family: 'Times New Roman', 'Georgia', serif; font-size: 1.25em;">
+                  Gini = 1 −
+                  <div style="display: inline-block; vertical-align: middle; text-align: center; line-height: 1.1; margin: 0 5px;">
+                      <div style="font-size: 0.75em;"><i>c</i></div>
+                      <div style="font-size: 1.7em; margin: 3px 0;">∑</div>
+                      <div style="font-size: 0.75em;"><i>i</i>=1</div>
+                  </div>
+                  <i>p<sub>i</sub></i><sup>2</sup>
+              </span>
           </div>
           
           <p>A lower Gini value indicates that the node is purer and contains mostly samples from a single class.</p>
@@ -501,20 +490,16 @@
           <p>Step 3: If no features remaining, Create leaf node with majority class, and STOP</p>
           <p>Step 4: Select the best feature to split on:</p>
           <p>Using Gini Impurity:</p>
-          <div class="formula-block">
-          <div class="equation-card">
-          <svg class="formula-svg" width="272" height="68" viewBox="0 0 272 68" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Gini of node equals one minus the summation of p sub i squared">
-            <rect width="272" height="68" fill="#f3f3f3"></rect>
-            <text x="10" y="42" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="22" font-style="italic" fill="#222">Gini</text>
-            <text x="57" y="42" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="22" fill="#222">(</text>
-            <text x="66" y="42" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="22" font-style="italic" fill="#222">node</text>
-            <text x="112" y="42" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="22" fill="#222">) = 1 -</text>
-            <text x="175" y="42" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="42" fill="#222">∑</text>
-            <text x="206" y="42" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="22" font-style="italic" fill="#222">p</text>
-            <text x="217" y="48" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="13" font-style="italic" fill="#222">i</text>
-            <text x="226" y="28" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="15" fill="#222">2</text>
-          </svg>
-          </div>
+          <div align="center" style="margin: 20px 0;">
+              <span style="font-family: 'Times New Roman', 'Georgia', serif; font-size: 1.25em;">
+                  Gini(node) = 1 −
+                  <div style="display: inline-block; vertical-align: middle; text-align: center; line-height: 1.1; margin: 0 5px;">
+                      <div style="font-size: 0.75em;"><i>c</i></div>
+                      <div style="font-size: 1.7em; margin: 3px 0;">∑</div>
+                      <div style="font-size: 0.75em;"><i>i</i>=1</div>
+                  </div>
+                  <i>p<sub>i</sub></i><sup>2</sup>
+              </span>
           </div>
           
           <p>Where <span class="math-inline">p_i</span> = proportion of class <span class="math-inline">i</span> in the node</p>
@@ -522,73 +507,40 @@
           <ul>
           <li>Calculate weighted Gini of child nodes</li>
           </ul>
-          <div class="formula-block">
-          <div class="equation-card">
-          <svg class="formula-svg" width="552" height="72" viewBox="0 0 552 72" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Gini split equals n left by n total times Gini left plus n right by n total times Gini right">
-            <rect width="552" height="72" fill="#f3f3f3"></rect>
-            <text x="10" y="44" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="22" font-style="italic" fill="#222">Gini</text>
-            <text x="57" y="50" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="13" font-style="italic" fill="#222">split</text>
-            <text x="87" y="44" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="22" fill="#222">= (</text>
-            <text x="117" y="34" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="18" font-style="italic" fill="#222">n</text>
-            <text x="127" y="40" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="11" font-style="italic" fill="#222">left</text>
-            <line x1="111" y1="44" x2="162" y2="44" stroke="#222" stroke-width="1.2"></line>
-            <text x="116" y="61" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="18" font-style="italic" fill="#222">n</text>
-            <text x="126" y="67" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="11" font-style="italic" fill="#222">total</text>
-            <text x="170" y="44" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="22" fill="#222">) x</text>
-            <text x="209" y="44" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="22" font-style="italic" fill="#222">Gini</text>
-            <text x="256" y="50" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="13" font-style="italic" fill="#222">left</text>
-            <text x="285" y="44" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="22" fill="#222">+ (</text>
-            <text x="317" y="34" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="18" font-style="italic" fill="#222">n</text>
-            <text x="327" y="40" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="11" font-style="italic" fill="#222">right</text>
-            <line x1="311" y1="44" x2="368" y2="44" stroke="#222" stroke-width="1.2"></line>
-            <text x="317" y="61" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="18" font-style="italic" fill="#222">n</text>
-            <text x="327" y="67" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="11" font-style="italic" fill="#222">total</text>
-            <text x="376" y="44" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="22" fill="#222">) x</text>
-            <text x="415" y="44" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="22" font-style="italic" fill="#222">Gini</text>
-            <text x="462" y="50" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="13" font-style="italic" fill="#222">right</text>
-          </svg>
-          </div>
+          <div align="center" style="margin: 20px 0;">
+              <span style="font-family: 'Times New Roman', 'Georgia', serif; font-size: 1.25em;">
+                  Gini<sub>split</sub> = 
+                  <div style="display: inline-block; vertical-align: middle; text-align: center; margin: 0 5px;">
+                      <div style="border-bottom: 1.2px solid black; padding: 0 5px;"><i>n</i><sub>left</sub></div>
+                      <div style="padding-top: 2px;"><i>n</i><sub>total</sub></div>
+                  </div>
+                  × Gini<sub>left</sub> + 
+                  <div style="display: inline-block; vertical-align: middle; text-align: center; margin: 0 5px;">
+                      <div style="border-bottom: 1.2px solid black; padding: 0 5px;"><i>n</i><sub>right</sub></div>
+                      <div style="padding-top: 2px;"><i>n</i><sub>total</sub></div>
+                  </div>
+                  × Gini<sub>right</sub>
+              </span>
           </div>
           
           <p>Select split with LOWEST Gini</p>
           <p>Using Information Gain (Entropy):</p>
-          <div class="formula-block">
-          <div class="equation-card">
-          <svg class="formula-svg" width="362" height="68" viewBox="0 0 362 68" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Entropy of node equals minus the summation of p sub i log base 2 of p sub i">
-            <rect width="362" height="68" fill="#f3f3f3"></rect>
-            <text x="10" y="42" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="22" font-style="italic" fill="#222">Entropy</text>
-            <text x="92" y="42" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="22" fill="#222">(</text>
-            <text x="100" y="42" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="22" font-style="italic" fill="#222">node</text>
-            <text x="146" y="42" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="22" fill="#222">) = -</text>
-            <text x="187" y="42" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="42" fill="#222">∑</text>
-            <text x="218" y="42" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="22" font-style="italic" fill="#222">p</text>
-            <text x="229" y="48" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="13" font-style="italic" fill="#222">i</text>
-            <text x="238" y="42" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="22" font-style="italic" fill="#222">log</text>
-            <text x="270" y="48" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="13" fill="#222">2</text>
-            <text x="278" y="42" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="22" fill="#222">(</text>
-            <text x="285" y="42" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="22" font-style="italic" fill="#222">p</text>
-            <text x="296" y="48" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="13" font-style="italic" fill="#222">i</text>
-            <text x="304" y="42" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="22" fill="#222">)</text>
-          </svg>
-          </div>
+          <div align="center" style="margin: 20px 0;">
+              <span style="font-family: 'Times New Roman', 'Georgia', serif; font-size: 1.25em;">
+                  Entropy(node) = −
+                  <div style="display: inline-block; vertical-align: middle; text-align: center; line-height: 1.1; margin: 0 5px;">
+                      <div style="font-size: 0.75em;"><i>c</i></div>
+                      <div style="font-size: 1.7em; margin: 3px 0;">∑</div>
+                      <div style="font-size: 0.75em;"><i>i</i>=1</div>
+                  </div>
+                  <i>p<sub>i</sub></i> log<sub>2</sub>(<i>p<sub>i</sub></i>)
+              </span>
           </div>
           
-          <div class="formula-block">
-          <div class="equation-card">
-          <svg class="formula-svg" width="724" height="68" viewBox="0 0 724 68" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Information Gain equals Entropy of parent minus Weighted Entropy of children">
-            <rect width="724" height="68" fill="#f3f3f3"></rect>
-            <text x="10" y="42" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="22" font-style="italic" fill="#222">Information Gain</text>
-            <text x="174" y="42" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="22" fill="#222">=</text>
-            <text x="195" y="42" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="22" font-style="italic" fill="#222">Entropy</text>
-            <text x="277" y="42" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="22" fill="#222">(</text>
-            <text x="285" y="42" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="22" font-style="italic" fill="#222">parent</text>
-            <text x="346" y="42" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="22" fill="#222">) -</text>
-            <text x="378" y="42" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="22" font-style="italic" fill="#222">Weighted Entropy</text>
-            <text x="559" y="42" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="22" fill="#222">(</text>
-            <text x="567" y="42" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="22" font-style="italic" fill="#222">children</text>
-            <text x="648" y="42" font-family="Cambria Math, Times New Roman, Georgia, serif" font-size="22" fill="#222">)</text>
-          </svg>
-          </div>
+          <div align="center" style="margin: 20px 0;">
+              <span style="font-family: 'Times New Roman', 'Georgia', serif; font-size: 1.25em;">
+                  Information Gain = Entropy(parent) − Weighted Entropy(children)
+              </span>
           </div>
           
           <p>Select split with HIGHEST Information Gain</p>
@@ -623,7 +575,7 @@
           <li>Lower Accuracy Compared to Ensembles: A single decision tree typically achieves lower predictive accuracy than more advanced ensemble methods such as Random Forests, Gradient Boosted Trees, or XGBoost, which combine many trees to produce more robust and accurate predictions.</li>
           </ul>
           
-          </div>
+            </div>
           <div class="bug-report-mobile">
               <bug-report id="bug-report" title="[BUG REPORT] DECISION TREES" page-type="text" context-info="{&quot;organisation&quot;:&quot;Virtual Labs&quot;,&quot;developer_institute&quot;:&quot;DLBG&quot;,&quot;expname&quot;:&quot;DECISION TREES&quot;,&quot;labname&quot;:&quot;Virtual Lab&quot;,&quot;phase&quot;:&quot;Testing&quot;}" checkbox-json="{&quot;text&quot;:[&quot;Insufficient Content&quot;],&quot;video&quot;:[&quot;Insufficient Content&quot;],&quot;assesment&quot;:[&quot;Incorrect Options&quot;,&quot;Incorrect Answer&quot;,&quot;Incorrect Question&quot;],&quot;assessment&quot;:[&quot;Incorrect Options&quot;,&quot;Incorrect Answer&quot;,&quot;Incorrect Question&quot;],&quot;simulation&quot;:[&quot;Simulation Not Working&quot;,&quot;Incorrect Results/Observations&quot;,&quot;Insufficient/Incorrect Instructions&quot;],&quot;DEFAULT&quot;:[&quot;Page Not Loading&quot;,&quot;Content Not Visible&quot;,&quot;Incorrect Content&quot;]}" position="override" button_style="
                           position: fixed; 
