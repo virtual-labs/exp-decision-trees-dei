@@ -1,0 +1,648 @@
+<!DOCTYPE html><html lang="en"><head>
+      <!--Google Tag Manager-->
+      <script class="gtm">
+        var dataLayer = [{
+        'labName': 'Virtual Lab',
+        'discipline': 'Test',
+        'college': 'DLBG',
+        'phase': 'Testing',
+        'expName': 'DECISION TREES',
+        'expShortName': 'decision-trees'
+        }];
+    
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-5NMQ9NQ');
+      </script>
+      <!--End Google Tag Manager-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="" name="description">
+    <meta content="" name="author">
+    
+    	<meta name="experiment-short-name" content="decision-trees">
+    	<meta name="developer-institute" content="DLBG">
+    	<meta name="learning-unit" content="DECISION TREES">
+    	<meta name="task-name" content="Theory">
+    
+    <!-- For iPhone -->
+    <meta name="msapplication-TileColor" content="#4076e0">
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#4076e0">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#4076e0">
+    <title>Virtual Labs</title>
+    <link rel="shortcut icon" href="./assets/images/favicon.ico">
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css" integrity="sha512-Oy18vBnbSJkXTndr2n6lDMO5NN31UljR8e/ICzVPrGpSud4Gkckb8yUpqhKuUNoE+o9gAb4O/rAxxw1ojyUVzg==" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&amp;family=Raleway&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./assets/css/github-markdown.min.css">
+    <link rel="stylesheet" href="./assets/css/vlabs-style.css">
+    <link rel="stylesheet" href="./assets/css/toast.css">
+    <link rel="stylesheet" href="./assets/katex_assets/katex.min.css">
+    
+    <script src="./assets/js/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+      h1 {
+      font-size: 1.8rem;
+      }
+      h2 {
+      font-size: 1.4rem;
+      }
+      h3 {
+      font-size: 1.2rem;
+      }
+
+      h2, h3 {
+      font-weight: 800;
+      }
+    </style>
+    
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"></head>
+  <body class="p-0 container-fluid vlabs-page d-flex flex-column justify-content-between">
+      <!--Google Tag Manager (noscript)-->
+      <noscript class="gtm">
+        <iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-5NMQ9NQ" style="display:none;visibility:hidden" width="0">
+        </iframe>
+      </noscript>
+      <!--End Google Tag Manager (noscript)-->
+  
+      <header class="vlabs-header sticky-top bg-white">
+        <nav class="p-0 navbar navbar-light d-flex align-items-stretch">
+          
+          <button class="navbar-toggler px-4" type="button" onclick="toggle()">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      
+          <div class="d-flex justify-content-center">        
+            <a href="https://vlab.co.in" class="navbar-brand">
+              <img src="./assets/images/vlabs-color-small-moe.jpg" alt="vlabs logo" class="vlabs-logo">
+            </a>
+          </div>
+          
+          <div id="headerNavbar" class="d-none border-top flex-grow-1 d-lg-flex align-items-center justify-content-end">
+            <div class="svc-rating-display">
+                <rating-display spreadsheetid="1x12nhpp0QvnsA6x-O1sV4IA9SAbfVsq_wiexWkutOmU" sheetname="Experiment-Database" columnname="Experiment Short Name" columnvalue="decision-trees" imagesdirectory="/plugins/svc-rating/images/">
+                </rating-display>
+            </div>      <div class="svc-rating-submit">
+                <rating-submit title="Rate" this="" experiment="">
+                </rating-submit>
+            </div>      <bug-report id="bug-report" title="[BUG REPORT] DECISION TREES" page-type="text" context-info="{&quot;organisation&quot;:&quot;Virtual Labs&quot;,&quot;developer_institute&quot;:&quot;DLBG&quot;,&quot;expname&quot;:&quot;DECISION TREES&quot;,&quot;labname&quot;:&quot;Virtual Lab&quot;,&quot;phase&quot;:&quot;Testing&quot;}" checkbox-json="{&quot;text&quot;:[&quot;Insufficient Content&quot;],&quot;video&quot;:[&quot;Insufficient Content&quot;],&quot;assesment&quot;:[&quot;Incorrect Options&quot;,&quot;Incorrect Answer&quot;,&quot;Incorrect Question&quot;],&quot;assessment&quot;:[&quot;Incorrect Options&quot;,&quot;Incorrect Answer&quot;,&quot;Incorrect Question&quot;],&quot;simulation&quot;:[&quot;Simulation Not Working&quot;,&quot;Incorrect Results/Observations&quot;,&quot;Insufficient/Incorrect Instructions&quot;],&quot;DEFAULT&quot;:[&quot;Page Not Loading&quot;,&quot;Content Not Visible&quot;,&quot;Incorrect Content&quot;]}" button_style="border: none; color: #fff; background-color: #288ec8; text-align: center; font-size: 1.05rem; border-radius: 1em;padding: 0.6em 1.2em; margin: 0 10px" position="override" custom_button_class="v-button"></bug-report>
+          </div>
+        </nav>
+      </header>
+      <div class="container-fluid flex-fill d-flex flex-column vlabs-page-main">
+        <div class="row d-flex justify-content-between">
+          <div class="flex-column">
+          <div class="row py-4 px-4 breadcrumbs">
+          	<div class="title is-4 tools">Tools</div>
+          	<span class="mx-2">
+          		<i aria-hidden="true" class="fa fa-angle-right"></i>
+          	</span>
+          	<a href="performance-report.html" class="my-2 mx-3" target="_blank">
+          		<button class="v-button">Performance Tool</button>
+          	</a>
+          	<a href="validator-report.html" class="my-2 mx-3" target="_blank">
+          		<button class="v-button">Validation Tool</button>
+          	</a>
+          </div>
+          </div>
+        </div>
+        <div class="row flex-grow-1 d-flex flex-nowrap flex-column flex-lg-row">
+          <div class="modal fade popupmenu" id="popupMenu" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">
+                              <a href="https://vlab.co.in" class="navbar-brand">
+                                  <img src="./assets/images/vlabs-color-small-moe.jpg" alt="vlabs logo" class="vlabs-logo">
+                              </a>
+                          </h5>
+                          <button type="button" class="btn-close align-self-center" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body nav-menu">
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="index.html" class="p-2 ">
+                                      Aim
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="theory.html" class="p-2  current-item ">
+                                      Theory
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="pretest.html" class="p-2 ">
+                                      Pretest
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="procedure.html" class="p-2 ">
+                                      Procedure
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="simulation.html" class="p-2 ">
+                                      Simulation
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="posttest.html" class="p-2 ">
+                                      Posttest
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="references.html" class="p-2 ">
+                                      References
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="contributors.html" class="p-2 ">
+                                      Contributors
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="d-flex nav-menu-body">
+                                      <a href="feedback.html" class="p-2 ">
+                                      Feedback
+                                      </a>
+                                      
+                                  </div>
+                                  <div id="t-" class="collapse">
+                                      <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                                      </div>
+                                  </div>
+                              </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="nav flex-column sidebar nav-menu flex-shrink-0 px-lg-4 align-items-center align-items-lg-start hidden d-none d-lg-flex" id="menu">
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="index.html" class="p-2 ">
+                        Aim
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="theory.html" class="p-2  current-item ">
+                        Theory
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="pretest.html" class="p-2 ">
+                        Pretest
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="procedure.html" class="p-2 ">
+                        Procedure
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="simulation.html" class="p-2 ">
+                        Simulation
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="posttest.html" class="p-2 ">
+                        Posttest
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="references.html" class="p-2 ">
+                        References
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="contributors.html" class="p-2 ">
+                        Contributors
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex nav-menu-body">
+                        <a href="feedback.html" class="p-2 ">
+                        Feedback
+                        </a>
+                        
+                    </div>
+                    <div id="t-" class="collapse">
+                        <div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+                        </div>
+                    </div>
+                </div>
+          </div>          <div class="vlabs-page-content px-5 pb-4 flex-grow-1 markdown-body">
+            <div class="text-center fix-spacing">
+              <h2 id="decision-trees">Decision Trees</h2>
+          
+            </div>
+              <style>
+          .formula-block {
+              text-align: center;
+              margin: 22px 0;
+          }
+          
+          .equation-card {
+              display: inline-block;
+              padding: 16px 28px;
+              background: #f3f3f3;
+              border-radius: 2px;
+              box-shadow: inset 0 0 0 1px rgba(0,0,0,0.04);
+          }
+          
+          .formula-svg {
+              display: block;
+              height: auto;
+              max-width: 100%;
+          }
+          
+          .math-inline {
+              font-family: "Cambria Math", "Times New Roman", "Georgia", serif;
+              font-style: italic;
+              font-size: 1.02em;
+              white-space: nowrap;
+          }
+          
+          .figure-block {
+              text-align: center;
+              margin: 18px 0;
+          }
+          
+          .figure-block img {
+              max-height: 320px;
+              width: auto;
+          }
+          
+          .figure-caption {
+              color: #64748b;
+              font-size: 0.92rem;
+              margin-top: 8px;
+              font-style: italic;
+          }
+          </style>
+          
+          <h3 id="1-introduction-to-decision-tree">1. Introduction to Decision Tree</h3>
+          <p>A Decision Tree is one of the most popular supervised machine learning algorithms used for both classification and regression problems. It is called a decision tree because its structure resembles a tree where decisions are made step by step.</p>
+          <p>In a decision tree, the dataset is divided into smaller groups based on certain conditions on the features. These conditions are arranged in a tree-like structure where each path from the root node to a leaf node represents a sequence of decisions that leads to a final prediction.</p>
+          <p>Because of its simple structure and easy interpretation, the decision tree algorithm is widely used in many applications such as medical diagnosis, customer purchase prediction, loan approval systems, and fraud detection.</p>
+          <h3 id="2-structure-of-a-decision-tree">2. Structure of a Decision Tree</h3>
+          <p>A decision tree consists of several components that together form the structure of the model as shown the Figure 1.</p>
+          <h4 id="21-root-node">2.1 Root Node</h4>
+          <p>The root node is the topmost node of the decision tree. It represents the entire dataset and is the starting point of the decision-making process. The algorithm selects the most important feature at this node to split the dataset.</p>
+          <h4 id="22-internal-nodes">2.2 Internal Nodes</h4>
+          <p>Internal nodes are also called decision nodes. These nodes represent conditions or tests applied to the dataset. Based on the result of the test, the data moves to the next branch.</p>
+          <h4 id="23-branches">2.3 Branches</h4>
+          <p>Branches represent the possible outcomes of a test performed at a node. Each branch connects one node to another and shows the direction that the data follows depending on the attribute value.</p>
+          <h4 id="24-leaf-nodes">2.4 Leaf Nodes</h4>
+          <p>Leaf nodes are also called terminal nodes. These nodes represent the final decision or prediction made by the model. In classification problems, they represent class labels, while in regression problems they represent numerical values.</p>
+          <div class="figure-block">
+          <img src="images/decision-trees.png" alt="Basic structure of a Decision Tree">
+          <p class="figure-caption">Figure 1: Basic structure of a decision tree</p>
+          </div>
+          
+          <h3 id="3-decision-tree-learning-concept">3. Decision Tree Learning Concept</h3>
+          <p>The learning process of a decision tree revolves around one central principle: recursively partitioning the training data into progressively purer subsets with respect to the target variable. The goal is to create regions in the feature space where most or all samples belong to the same class (for classification) or have similar output values (for regression).</p>
+          <p>At the start of training, the entire dataset is placed at the root node. The algorithm then searches through all available features and all possible split points for each feature to find the split that best separates the data. Once a split is chosen, the data is divided into subsets, and the same process is applied recursively to each subset. This continues until a stopping condition is met.</p>
+          <p>The concept of homogeneity is central to this process. A node is considered pure if all the samples it contains belong to the same class. As the tree grows deeper, each node should ideally contain a more homogeneous set of samples than its parent.</p>
+          <p>This recursive partitioning is what allows decision trees to model complex, non-linear relationships between features and the target variable without requiring explicit feature engineering. The recursive nature of this process means that the tree grows by repeatedly applying the same splitting logic to smaller and smaller subsets of the data. At each level of the tree, the algorithm makes the locally optimal choice of feature and split point, which is known as a greedy approach. While this greedy strategy is computationally efficient, it does not guarantee a globally optimal tree structure.</p>
+          <h3 id="4-splitting-criteria">4. Splitting Criteria</h3>
+          <p>To decide which feature should be used to split the dataset at each node, the decision tree algorithm uses certain mathematical measures known as splitting criteria. Two commonly used criteria are Entropy (Information Gain) and Gini Index.</p>
+          <h4 id="41-entropy">4.1 Entropy</h4>
+          <p>Entropy measures the uncertainty or impurity in a dataset. If all the data points belong to the same class, the entropy value becomes zero, which means the data is perfectly pure. If the data contains a mixture of different classes, the entropy value becomes higher.</p>
+          <p>Entropy is calculated using the following formula:</p>
+          <div align="center" style="margin: 20px 0;">
+              <span style="font-family: 'Times New Roman', 'Georgia', serif; font-size: 1.25em;">
+                  Entropy(<i>S</i>) = −
+                  <div style="display: inline-block; vertical-align: middle; text-align: center; line-height: 1.1; margin: 0 5px;">
+                      <div style="font-size: 0.75em;"><i>c</i></div>
+                      <div style="font-size: 1.7em; margin: 3px 0;">∑</div>
+                      <div style="font-size: 0.75em;"><i>i</i>=1</div>
+                  </div>
+                  <i>p<sub>i</sub></i> log<sub>2</sub>(<i>p<sub>i</sub></i>)
+              </span>
+          </div>
+          
+          <p>where <span class="math-inline">p_i</span> represents the probability of each class in the dataset.</p>
+          <p>Using entropy, the algorithm calculates Information Gain, which measures how much uncertainty is reduced after splitting the dataset using a particular attribute. The attribute with the highest information gain is selected for splitting.</p>
+          <h4 id="42-gini-index">4.2 Gini Index</h4>
+          <p>The Gini Index is another measure used to evaluate the quality of a split. It represents the probability of incorrectly classifying a randomly chosen element from the dataset.</p>
+          <p>The formula for Gini Index is:</p>
+          <div align="center" style="margin: 20px 0;">
+              <span style="font-family: 'Times New Roman', 'Georgia', serif; font-size: 1.25em;">
+                  Gini = 1 −
+                  <div style="display: inline-block; vertical-align: middle; text-align: center; line-height: 1.1; margin: 0 5px;">
+                      <div style="font-size: 0.75em;"><i>c</i></div>
+                      <div style="font-size: 1.7em; margin: 3px 0;">∑</div>
+                      <div style="font-size: 0.75em;"><i>i</i>=1</div>
+                  </div>
+                  <i>p<sub>i</sub></i><sup>2</sup>
+              </span>
+          </div>
+          
+          <p>A lower Gini value indicates that the node is purer and contains mostly samples from a single class.</p>
+          <h3 id="5-tree-construction-process">5. Tree Construction Process</h3>
+          <p>The construction of a decision tree follows a systematic, top-down procedure. Beginning with the entire dataset at the root, the tree is built by repeatedly applying splitting rules to create child nodes, expanding level by level until one or more stopping conditions are satisfied. The general process unfolds as follows:</p>
+          <ol>
+          <li>The entire training dataset is placed at the root node.</li>
+          <li>The algorithm evaluates every feature and every possible split threshold for that feature.</li>
+          <li>For each candidate split, the splitting criterion (Entropy or Gini Index) is computed.</li>
+          <li>The feature and split point that produce the best criterion value are selected.</li>
+          <li>The dataset is divided into subsets based on the chosen split, and child nodes are created.</li>
+          <li>Steps 2 through 5 are applied recursively to each child node using only the samples that reached that node.</li>
+          <li>The process continues until a stopping condition is met, at which point the node becomes a leaf.</li>
+          </ol>
+          <p>A decision tree stops growing when certain stopping conditions are satisfied. The growth of the tree terminates if all samples within a node belong to the same class, if the number of samples in the node becomes too small to allow further meaningful splitting, or if a predefined maximum depth of the tree is reached. The splitting process may also stop when further partitioning does not improve the chosen decision criterion, in which case the node is designated as a leaf node and assigned a class label. It is important to note that the decision tree construction algorithm follows a greedy approach, meaning that at each node it selects the best possible split based only on the current data without reconsidering previous decisions. As a result, the final tree structure may not always represent the globally optimal solution, which is why techniques such as pruning and ensemble methods are often employed to improve model performance.</p>
+          <h3 id="6-pruning-techniques">6. Pruning Techniques</h3>
+          <p>One of the most significant challenges with decision trees is overfitting. When a tree is allowed to grow without restrictions, it tends to learn the training data too precisely, including noise and outliers, resulting in a highly complex model that performs poorly on new, unseen data. Pruning is the process of simplifying a decision tree to reduce overfitting and improve its generalization capability.</p>
+          <h4 id="pre-pruning-early-stopping">Pre-Pruning (Early Stopping)</h4>
+          <p>Pre-pruning, also known as early stopping, prevents the tree from growing beyond a certain point during the construction phase itself. Instead of building the full tree and then simplifying it, the algorithm stops creating new branches when certain conditions are met. Common pre-pruning strategies include:</p>
+          <ul>
+          <li>Setting a maximum depth limit on the tree, preventing it from growing too deep.</li>
+          <li>Requiring a minimum number of samples before a node can be split further.</li>
+          <li>Requiring that any split must improve the splitting criterion by at least a minimum amount.</li>
+          </ul>
+          <p>Pre-pruning is computationally efficient because it avoids building parts of the tree that will later be removed. However, it risks stopping too early and producing an underfitted model that misses important patterns in the data.</p>
+          <h4 id="post-pruning">Post-Pruning</h4>
+          <p>Post-pruning is applied after the tree has been fully grown. The algorithm first builds the complete tree and then works backwards, evaluating whether removing certain subtrees or replacing them with leaf nodes improves the model's performance on a validation dataset. The most commonly used post-pruning method is Cost-Complexity Pruning (also called Reduced-Error Pruning or Weakest Link Pruning).</p>
+          <p>In Cost-Complexity Pruning, a complexity parameter (often called <span class="math-inline">α</span>) is introduced to penalize large tree sizes. By tuning this parameter, one can control the trade-off between tree size and accuracy. Larger values of <span class="math-inline">α</span> produce smaller, simpler trees, while smaller values allow more complex trees. Cross-validation is typically used to select the optimal value of <span class="math-inline">α</span>.</p>
+          <p>Post-pruning generally produces better results than pre-pruning because it makes decisions based on the full picture of the tree, but it is more computationally demanding.</p>
+          <h3 id="7-decision-tree-algorithm">7. Decision Tree Algorithm</h3>
+          <p>Step 1: Start with entire dataset at root node</p>
+          <p>Step 2: If all samples belong to same class, Create leaf node with that class label, STOP</p>
+          <p>Step 3: If no features remaining, Create leaf node with majority class, and STOP</p>
+          <p>Step 4: Select the best feature to split on:</p>
+          <p>Using Gini Impurity:</p>
+          <div align="center" style="margin: 20px 0;">
+              <span style="font-family: 'Times New Roman', 'Georgia', serif; font-size: 1.25em;">
+                  Gini(node) = 1 −
+                  <div style="display: inline-block; vertical-align: middle; text-align: center; line-height: 1.1; margin: 0 5px;">
+                      <div style="font-size: 0.75em;"><i>c</i></div>
+                      <div style="font-size: 1.7em; margin: 3px 0;">∑</div>
+                      <div style="font-size: 0.75em;"><i>i</i>=1</div>
+                  </div>
+                  <i>p<sub>i</sub></i><sup>2</sup>
+              </span>
+          </div>
+          
+          <p>Where <span class="math-inline">p_i</span> = proportion of class <span class="math-inline">i</span> in the node</p>
+          <p>For each feature and each possible split value:</p>
+          <ul>
+          <li>Calculate weighted Gini of child nodes</li>
+          </ul>
+          <div align="center" style="margin: 20px 0;">
+              <span style="font-family: 'Times New Roman', 'Georgia', serif; font-size: 1.25em;">
+                  Gini<sub>split</sub> = 
+                  <div style="display: inline-block; vertical-align: middle; text-align: center; margin: 0 5px;">
+                      <div style="border-bottom: 1.2px solid black; padding: 0 5px;"><i>n</i><sub>left</sub></div>
+                      <div style="padding-top: 2px;"><i>n</i><sub>total</sub></div>
+                  </div>
+                  × Gini<sub>left</sub> + 
+                  <div style="display: inline-block; vertical-align: middle; text-align: center; margin: 0 5px;">
+                      <div style="border-bottom: 1.2px solid black; padding: 0 5px;"><i>n</i><sub>right</sub></div>
+                      <div style="padding-top: 2px;"><i>n</i><sub>total</sub></div>
+                  </div>
+                  × Gini<sub>right</sub>
+              </span>
+          </div>
+          
+          <p>Select split with LOWEST Gini</p>
+          <p>Using Information Gain (Entropy):</p>
+          <div align="center" style="margin: 20px 0;">
+              <span style="font-family: 'Times New Roman', 'Georgia', serif; font-size: 1.25em;">
+                  Entropy(node) = −
+                  <div style="display: inline-block; vertical-align: middle; text-align: center; line-height: 1.1; margin: 0 5px;">
+                      <div style="font-size: 0.75em;"><i>c</i></div>
+                      <div style="font-size: 1.7em; margin: 3px 0;">∑</div>
+                      <div style="font-size: 0.75em;"><i>i</i>=1</div>
+                  </div>
+                  <i>p<sub>i</sub></i> log<sub>2</sub>(<i>p<sub>i</sub></i>)
+              </span>
+          </div>
+          
+          <div align="center" style="margin: 20px 0;">
+              <span style="font-family: 'Times New Roman', 'Georgia', serif; font-size: 1.25em;">
+                  Information Gain = Entropy(parent) − Weighted Entropy(children)
+              </span>
+          </div>
+          
+          <p>Select split with HIGHEST Information Gain</p>
+          <p>Step 5: Create child nodes based on the split condition.</p>
+          <p>Step 6: Recursively apply Steps 2-5 to each child node.</p>
+          <p>Step 7: For prediction:</p>
+          <ul>
+          <li>Start at root node.</li>
+          <li>At each node, check the split condition.</li>
+          <li>Move to left or right child based on feature value.</li>
+          <li>Continue until reaching a leaf node.</li>
+          <li>Return the class label of the leaf.</li>
+          </ul>
+          <h3 id="8-merits-of-decision-trees">8. Merits of Decision Trees</h3>
+          <p>Decision trees offer several important advantages that explain their widespread use across both academic research and real-world applications.</p>
+          <ul>
+          <li>Interpretability and Transparency: Decision trees are among the most interpretable machine learning models. Their visual, hierarchical structure allows users, stakeholders, and domain experts to follow the exact reasoning path that led to any given prediction. This transparency is especially valuable in regulated industries such as healthcare and finance, where model decisions must be explainable.</li>
+          <li>Minimal Data Preprocessing: Unlike many other machine learning algorithms, decision trees do not require normalization, standardization, or scaling of input features. They can handle raw numerical and categorical data directly, significantly reducing the amount of preprocessing work required before training.</li>
+          <li>Ability to Handle Mixed Feature Types: Decision trees can naturally accommodate datasets containing both numerical features (such as age or income) and categorical features (such as gender or occupation) without requiring any special encoding or transformation.</li>
+          <li>Automatic Feature Selection: During the tree construction process, the algorithm automatically identifies and uses the most informative features at each node. Features that are not selected at any node do not influence the model, effectively performing built-in feature selection.</li>
+          <li>Non-Linear Relationship Modeling: Decision trees can capture complex, non-linear relationships between input features and the target variable. By partitioning the feature space into rectangular regions, they can approximate any decision boundary regardless of its shape.</li>
+          <li>Fast Prediction Time: Once a decision tree is trained, making predictions requires only traversing a single path from root to leaf, which is computationally very fast even for large trees.</li>
+          </ul>
+          <h3 id="9-demerits-of-decision-trees">9. Demerits of Decision Trees</h3>
+          <p>Despite their many advantages, decision trees have several notable limitations that must be considered when selecting them for a given problem.</p>
+          <ul>
+          <li>Prone to Overfitting: One of the most well-known weaknesses of decision trees is their tendency to overfit the training data, particularly when the tree is allowed to grow deep without restriction. An overfitted tree memorizes the training data, including noise and irrelevant patterns, resulting in poor performance on new, unseen data.</li>
+          <li>High Variance and Instability: Decision trees are highly sensitive to small changes in the training data. A slight modification in the dataset can lead to an entirely different tree structure. This instability, known as high variance, makes individual decision trees unreliable as standalone models for high-stakes applications.</li>
+          <li>Greedy Learning and Suboptimal Splits: The tree construction algorithm uses a greedy approach, making the locally best split at each node without considering the global structure of the tree. This can lead to suboptimal splits that miss better overall tree configurations.</li>
+          <li>Difficulty with Complex Relationships: While decision trees can model non-linear relationships, they struggle to capture certain complex patterns such as smooth curves or interactions that require many small splits. Such patterns often require very deep trees, increasing the risk of overfitting.</li>
+          <li>Biased Towards Features with More Levels: Decision trees tend to favor features with more possible split points (for example, continuous or high-cardinality categorical features) over features with fewer levels. This bias can lead to the selection of less informative features in some situations.</li>
+          <li>Lower Accuracy Compared to Ensembles: A single decision tree typically achieves lower predictive accuracy than more advanced ensemble methods such as Random Forests, Gradient Boosted Trees, or XGBoost, which combine many trees to produce more robust and accurate predictions.</li>
+          </ul>
+          
+          </div>
+          <div class="bug-report-mobile">
+              <bug-report id="bug-report" title="[BUG REPORT] DECISION TREES" page-type="text" context-info="{&quot;organisation&quot;:&quot;Virtual Labs&quot;,&quot;developer_institute&quot;:&quot;DLBG&quot;,&quot;expname&quot;:&quot;DECISION TREES&quot;,&quot;labname&quot;:&quot;Virtual Lab&quot;,&quot;phase&quot;:&quot;Testing&quot;}" checkbox-json="{&quot;text&quot;:[&quot;Insufficient Content&quot;],&quot;video&quot;:[&quot;Insufficient Content&quot;],&quot;assesment&quot;:[&quot;Incorrect Options&quot;,&quot;Incorrect Answer&quot;,&quot;Incorrect Question&quot;],&quot;assessment&quot;:[&quot;Incorrect Options&quot;,&quot;Incorrect Answer&quot;,&quot;Incorrect Question&quot;],&quot;simulation&quot;:[&quot;Simulation Not Working&quot;,&quot;Incorrect Results/Observations&quot;,&quot;Insufficient/Incorrect Instructions&quot;],&quot;DEFAULT&quot;:[&quot;Page Not Loading&quot;,&quot;Content Not Visible&quot;,&quot;Incorrect Content&quot;]}" position="override" button_style="
+                          position: fixed; 
+                          bottom: 20px;
+                          right: 20px;
+                          z-index: 1;
+                          font-size: 0;
+                          padding: 25px;
+                          border-radius: 50%;
+                          border: none;
+                          background-color: #0fc0ff;
+                          background-image: url(data:image/png;base64,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);
+                          background-repeat: no-repeat;
+                          background-position: center;
+                          background-size: 30px;
+                          filter: invert(1);">
+              </bug-report>
+          </div>        </div>
+      </div>
+      <footer class="text-light pt-2 vlabs-footer d-flex flex-column">
+        <div class="row px-5 mx-0">
+          <div class="col d-flex flex-column">
+            <span class="font-weight-bold vlabs-footer-sect-name pb-2 mb-3">Community Links</span>
+            <a href="https://www.sakshat.ac.in/" class="text-light">Sakshat Portal</a>
+            <a href="http://outreach.vlabs.ac.in/" class="text-light">Outreach Portal</a>
+            <a href="https://vlab.co.in/faq" class="text-light">FAQ: Virtual Labs</a>
+          </div>
+          <div class="col d-flex flex-column">
+            <span class="font-weight-bold vlabs-footer-sect-name pb-2 mb-3">Contact Us</span>
+            <span> Phone: General Information: 011-26582050 </span>
+            <span> Email: support@vlabs.ac.in </span>
+          </div>
+          <div class="col d-flex flex-column">
+            <span class="font-weight-bold vlabs-footer-sect-name pb-2 mb-3">Follow Us</span>
+            <div class="social-links">
+      	<a class="p-2 mt-1 mr-2 d-inline-flex justify-content-center align-items-center" style="background: #55acee;" href="https://twitter.com/TheVirtualLabs">
+      	  <i class="fab fa-twitter"></i>
+      	</a>
+      	<a class="p-2 mt-1 mr-2 d-inline-flex justify-content-center align-items-center" style="background: #3b5998;" href="https://www.facebook.com/Virtual-Labs-IIT-Delhi-301510159983871/">
+      	  <i class="fab fa-facebook"></i>
+      	</a>
+      	<a class="p-2 mt-1 mr-2 d-inline-flex justify-content-center align-items-center" style="background: #e52d27;" href="https://www.youtube.com/watch?v=asxRaOgk6a0">
+      	  <i class="fab fa-youtube"></i>
+      	</a>
+      	<a class="p-2 mt-1 mr-2 d-inline-flex justify-content-center align-items-center" style="background: #2867B2;" href="https://in.linkedin.com/in/virtual-labs-008ba9136">
+      	  <i class="fab fa-linkedin"></i>
+      	</a>
+            </div>
+          </div>
+        </div>
+        <div class="m-0 py-2 text-center" style="font-family: &quot;Open Sans&quot;, sans-serif; background: #212121;">
+          <a class="text-primary font-weight-bold" href="https://www.gnu.org/licenses/agpl-3.0.en.html"> AGPL 3.0 </a>
+          &nbsp;&amp;&nbsp;
+          <a class="text-primary font-weight-bold" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"> Creative Commons (CC BY-NC-SA 4.0) </a>
+        </div>
+      </footer>
+    <script src="./assets/js/toggleSidebar.js"></script>
+    <script src="./assets/js/event-handler.js"></script>
+
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register("sw.js");
+        });
+      }
+    </script>
+  
+
+<script type="module" src="https://cdn.vlabs.ac.in/bug-report/vlabs-bug-report.js"></script><script type="module" src="/exp-decision-trees-dei/plugins/svc-rating/index.js"></script><script type="module" src="/exp-decision-trees-dei/plugins/svc-rating/config.js"></script><script type="module" src="https://apis.google.com/js/api.js"></script></body></html>
